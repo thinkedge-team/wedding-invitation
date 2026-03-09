@@ -1,0 +1,3066 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1.0"
+        />
+        <title>Nadira &amp; Fabian — Wedding Invitation</title>
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@200;300;400&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            /* ════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════ */
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            html {
+                scroll-behavior: smooth;
+                overflow-x: hidden;
+            }
+
+            :root {
+                /* Midnight Botanical Palette */
+                --night: #0b1512;
+                --forest: #0f2218;
+                --emerald: #1a3d2b;
+                --jade: #2a5c40;
+                --sage: #4a7c5f;
+                --mist: #8ab89a;
+                --frost: #c8ddd0;
+                --champ: #d4b896;
+                --gold: #c9a55a;
+                --gold-lt: #e8cc8a;
+                --copper: #b8824a;
+                --cream: #f5f0e8;
+                --parchment: #ede5d8;
+                --white: #ffffff;
+                --smoke: #8a9e92;
+            }
+
+            body {
+                background: var(--night);
+                color: var(--cream);
+                font-family: "Raleway", sans-serif;
+                font-weight: 300;
+                cursor: none;
+                overflow-x: hidden;
+            }
+            @media (max-width: 768px) {
+                body {
+                    cursor: auto;
+                }
+            }
+
+            /* ════════════════════════════════════════
+   CUSTOM CURSOR — Emerald leaf style
+════════════════════════════════════════ */
+            #cur {
+                position: fixed;
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--gold);
+                pointer-events: none;
+                z-index: 9999;
+                left: -20px;
+                top: -20px;
+                transform: translate(-50%, -50%);
+                transition:
+                    width 0.2s,
+                    height 0.2s,
+                    background 0.2s,
+                    border-radius 0.3s;
+            }
+            #cur-ring {
+                position: fixed;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                border: 1px solid rgba(201, 165, 90, 0.5);
+                pointer-events: none;
+                z-index: 9998;
+                left: -40px;
+                top: -40px;
+                transform: translate(-50%, -50%);
+                transition:
+                    width 0.3s,
+                    height 0.3s,
+                    opacity 0.3s,
+                    border-radius 0.3s;
+                opacity: 0.6;
+            }
+            @media (max-width: 768px) {
+                #cur,
+                #cur-ring {
+                    display: none;
+                }
+            }
+
+            /* ════════════════════════════════════════
+   OPENING VEIL — Dark forest with aurora
+════════════════════════════════════════ */
+            #veil {
+                position: fixed;
+                inset: 0;
+                z-index: 9000;
+                background: var(--night);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0;
+                overflow: hidden;
+                transition:
+                    opacity 1.4s ease,
+                    visibility 1.4s ease;
+            }
+            #veil.gone {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+
+            /* Aurora background in veil */
+            .aurora {
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                overflow: hidden;
+            }
+            .aurora-band {
+                position: absolute;
+                border-radius: 50%;
+                filter: blur(80px);
+                opacity: 0;
+                animation: aurora-flow 6s ease forwards;
+            }
+            .ab1 {
+                width: 70vw;
+                height: 40vh;
+                background: radial-gradient(
+                    ellipse,
+                    rgba(26, 61, 43, 0.9),
+                    transparent 70%
+                );
+                top: 10%;
+                left: 15%;
+                animation-delay: 0.3s;
+            }
+            .ab2 {
+                width: 50vw;
+                height: 35vh;
+                background: radial-gradient(
+                    ellipse,
+                    rgba(42, 92, 64, 0.7),
+                    transparent 70%
+                );
+                top: 30%;
+                right: 5%;
+                animation-delay: 0.8s;
+            }
+            .ab3 {
+                width: 40vw;
+                height: 30vh;
+                background: radial-gradient(
+                    ellipse,
+                    rgba(201, 165, 90, 0.12),
+                    transparent 70%
+                );
+                bottom: 15%;
+                left: 20%;
+                animation-delay: 1.2s;
+            }
+            @keyframes aurora-flow {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Botanical SVG frame in veil */
+            .veil-frame {
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Veil content */
+            .veil-mono {
+                font-family: "Cinzel", serif;
+                font-size: 0.62rem;
+                letter-spacing: 8px;
+                text-transform: uppercase;
+                color: var(--gold);
+                opacity: 0;
+                animation: veil-rise 0.8s 0.6s ease forwards;
+                position: relative;
+                z-index: 1;
+                margin-bottom: 20px;
+            }
+            .veil-names {
+                font-family: "Cinzel Decorative", serif;
+                font-size: clamp(2rem, 7vw, 5rem);
+                color: var(--cream);
+                text-align: center;
+                line-height: 1.2;
+                opacity: 0;
+                animation: veil-rise 1.2s 0.9s ease forwards;
+                position: relative;
+                z-index: 1;
+                text-shadow: 0 0 60px rgba(201, 165, 90, 0.3);
+            }
+            .veil-amp {
+                font-family: "EB Garamond", serif;
+                font-style: italic;
+                font-size: 0.5em;
+                color: var(--gold);
+                display: block;
+                letter-spacing: 4px;
+            }
+            .veil-ornament {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                margin: 20px 0;
+                opacity: 0;
+                animation: veil-rise 0.8s 1.3s ease forwards;
+                position: relative;
+                z-index: 1;
+            }
+            .veil-ornament span {
+                font-size: 0.58rem;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                color: var(--mist);
+            }
+            .veil-ornament::before,
+            .veil-ornament::after {
+                content: "";
+                display: block;
+                width: 50px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, var(--gold));
+            }
+            .veil-ornament::after {
+                background: linear-gradient(90deg, var(--gold), transparent);
+            }
+
+            .veil-open {
+                margin-top: 10px;
+                padding: 14px 48px;
+                border: 1px solid rgba(201, 165, 90, 0.5);
+                background: transparent;
+                color: var(--gold-lt);
+                font-family: "Cinzel", serif;
+                font-size: 0.62rem;
+                letter-spacing: 6px;
+                text-transform: uppercase;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                opacity: 0;
+                animation: veil-rise 1s 1.8s ease forwards;
+                transition: color 0.4s;
+                z-index: 1;
+            }
+            .veil-open::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    135deg,
+                    var(--jade),
+                    var(--emerald)
+                );
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+            }
+            .veil-open:hover::before {
+                transform: scaleX(1);
+            }
+            .veil-open span {
+                position: relative;
+                z-index: 1;
+            }
+            .veil-open:hover span {
+                color: var(--cream);
+            }
+
+            @keyframes veil-rise {
+                from {
+                    opacity: 0;
+                    transform: translateY(22px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Stars in veil */
+            .star-field {
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+            }
+
+            /* ════════════════════════════════════════
+   MUSIC FAB
+════════════════════════════════════════ */
+            #mfab {
+                position: fixed;
+                bottom: 28px;
+                right: 28px;
+                z-index: 8500;
+                width: 54px;
+                height: 54px;
+                border-radius: 50%;
+                background: linear-gradient(
+                    135deg,
+                    var(--jade),
+                    var(--emerald)
+                );
+                border: 1px solid rgba(201, 165, 90, 0.3);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                box-shadow:
+                    0 8px 32px rgba(0, 0, 0, 0.4),
+                    0 0 0 0 rgba(42, 92, 64, 0.4);
+                transition:
+                    transform 0.3s,
+                    box-shadow 0.3s;
+            }
+            #mfab:hover {
+                transform: scale(1.1);
+                box-shadow:
+                    0 12px 40px rgba(0, 0, 0, 0.5),
+                    0 0 20px rgba(42, 92, 64, 0.3);
+            }
+            #mfab svg {
+                width: 18px;
+                height: 18px;
+                stroke: var(--gold-lt);
+                fill: none;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+            .mring {
+                position: fixed;
+                border-radius: 50%;
+                pointer-events: none;
+                border: 1px solid rgba(42, 92, 64, 0.5);
+                animation: mring 2.4s ease-out infinite;
+            }
+            .mr1 {
+                bottom: 14px;
+                right: 14px;
+                z-index: 8499;
+                width: 82px;
+                height: 82px;
+            }
+            .mr2 {
+                bottom: 6px;
+                right: 6px;
+                z-index: 8498;
+                width: 98px;
+                height: 98px;
+                animation-delay: 0.6s;
+                border-color: rgba(42, 92, 64, 0.25);
+            }
+            @keyframes mring {
+                0% {
+                    transform: scale(1);
+                    opacity: 0.7;
+                }
+                100% {
+                    transform: scale(1.6);
+                    opacity: 0;
+                }
+            }
+
+            /* ════════════════════════════════════════
+   HERO
+════════════════════════════════════════ */
+            .hero {
+                min-height: 100vh;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                overflow: hidden;
+            }
+            .hero-bg {
+                position: absolute;
+                inset: 0;
+                background-image: url("https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1600&auto=format&fit=crop&q=80");
+                background-size: cover;
+                background-position: center 30%;
+                animation: kb 26s ease-in-out infinite alternate;
+                transform-origin: center;
+            }
+            @keyframes kb {
+                from {
+                    transform: scale(1.06) translate(0, 0);
+                }
+                to {
+                    transform: scale(1.13) translate(-1.5%, 1%);
+                }
+            }
+            .hero-ov {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(11, 21, 18, 0.65) 0%,
+                    rgba(11, 21, 18, 0.35) 40%,
+                    rgba(11, 21, 18, 0.8) 100%
+                );
+            }
+            /* Aurora shimmer overlay */
+            .hero-aurora {
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                z-index: 1;
+                background:
+                    radial-gradient(
+                        ellipse 80% 40% at 20% 30%,
+                        rgba(26, 61, 43, 0.5) 0%,
+                        transparent 60%
+                    ),
+                    radial-gradient(
+                        ellipse 60% 50% at 80% 70%,
+                        rgba(15, 34, 24, 0.4) 0%,
+                        transparent 60%
+                    );
+                animation: aurora-shift 12s ease-in-out infinite alternate;
+            }
+            @keyframes aurora-shift {
+                from {
+                    opacity: 0.8;
+                    transform: scale(1);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1.05);
+                }
+            }
+            #star-canvas {
+                position: absolute;
+                inset: 0;
+                z-index: 2;
+                pointer-events: none;
+            }
+            .hero-grain {
+                position: absolute;
+                inset: 0;
+                z-index: 3;
+                pointer-events: none;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.035'/%3E%3C/svg%3E");
+                opacity: 0.6;
+            }
+
+            /* Botanical corner ornaments */
+            .hero-corners {
+                position: absolute;
+                inset: 0;
+                z-index: 3;
+                pointer-events: none;
+            }
+            .hc {
+                position: absolute;
+                opacity: 0.45;
+            }
+            .hc-tl {
+                top: 0;
+                left: 0;
+            }
+            .hc-tr {
+                top: 0;
+                right: 0;
+                transform: scaleX(-1);
+            }
+            .hc-bl {
+                bottom: 0;
+                left: 0;
+                transform: scaleY(-1);
+            }
+            .hc-br {
+                bottom: 0;
+                right: 0;
+                transform: scale(-1);
+            }
+
+            .hero-body {
+                position: relative;
+                z-index: 4;
+                padding: 0 32px;
+            }
+            .h-eyebrow {
+                font-family: "Cinzel", serif;
+                font-size: 0.58rem;
+                letter-spacing: 8px;
+                text-transform: uppercase;
+                color: var(--gold);
+                display: inline-flex;
+                align-items: center;
+                gap: 14px;
+                opacity: 0;
+                animation: veil-rise 0.9s 0.1s ease forwards;
+            }
+            .h-eyebrow::before,
+            .h-eyebrow::after {
+                content: "";
+                display: block;
+                width: 28px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, var(--gold));
+            }
+            .h-eyebrow::after {
+                background: linear-gradient(90deg, var(--gold), transparent);
+            }
+
+            .h-names {
+                font-family: "Cinzel Decorative", serif;
+                font-size: clamp(2.4rem, 8vw, 7rem);
+                color: var(--cream);
+                line-height: 1.1;
+                margin: 20px 0 8px;
+                opacity: 0;
+                animation: veil-rise 1.2s 0.4s ease forwards;
+                text-shadow:
+                    0 2px 40px rgba(0, 0, 0, 0.5),
+                    0 0 80px rgba(201, 165, 90, 0.15);
+                letter-spacing: 2px;
+            }
+            .h-amp {
+                font-family: "EB Garamond", serif;
+                font-style: italic;
+                font-size: 0.45em;
+                color: var(--gold-lt);
+                display: inline;
+                letter-spacing: normal;
+                text-shadow: 0 0 30px rgba(201, 165, 90, 0.4);
+            }
+            .h-date {
+                font-family: "Cinzel", serif;
+                font-size: 0.68rem;
+                letter-spacing: 6px;
+                color: rgba(245, 240, 232, 0.6);
+                opacity: 0;
+                animation: veil-rise 0.9s 0.85s ease forwards;
+            }
+            .h-venue {
+                font-family: "EB Garamond", serif;
+                font-style: italic;
+                font-size: 1.25rem;
+                color: var(--mist);
+                margin-top: 6px;
+                opacity: 0;
+                animation: veil-rise 0.9s 1.05s ease forwards;
+            }
+            .h-divider {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 14px;
+                margin: 26px auto;
+                opacity: 0;
+                animation: veil-rise 0.9s 1.25s ease forwards;
+            }
+            .h-divider span {
+                display: block;
+                width: 60px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, var(--gold));
+            }
+            .h-divider span:last-child {
+                background: linear-gradient(90deg, var(--gold), transparent);
+            }
+            .h-diamond {
+                width: 8px;
+                height: 8px;
+                background: var(--gold);
+                transform: rotate(45deg);
+                box-shadow: 0 0 12px rgba(201, 165, 90, 0.6);
+            }
+
+            .scroll-cue {
+                position: absolute;
+                bottom: 32px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 4;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                opacity: 0;
+                animation: veil-rise 0.9s 1.7s ease forwards;
+            }
+            .scroll-cue span {
+                font-size: 0.55rem;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                color: rgba(245, 240, 232, 0.35);
+            }
+            .scroll-line {
+                width: 1px;
+                height: 40px;
+                background: linear-gradient(
+                    to bottom,
+                    var(--gold),
+                    transparent
+                );
+                animation: scroll-pulse 2s ease-in-out infinite;
+            }
+            @keyframes scroll-pulse {
+                0%,
+                100% {
+                    opacity: 0.4;
+                    transform: scaleY(1);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scaleY(1.1);
+                }
+            }
+
+            /* ════════════════════════════════════════
+   SECTION SHELL
+════════════════════════════════════════ */
+            .sec {
+                padding: 96px 24px;
+                max-width: 960px;
+                margin: 0 auto;
+            }
+            .sec-full {
+                padding: 96px 40px;
+            }
+            .sec-dark {
+                background: var(--night);
+            }
+            .sec-forest {
+                background: var(--forest);
+            }
+            .sec-emerald {
+                background: var(--emerald);
+            }
+
+            /* Labels & headings */
+            .lbl {
+                font-family: "Cinzel", serif;
+                font-size: 0.55rem;
+                letter-spacing: 7px;
+                text-transform: uppercase;
+                color: var(--gold);
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+            }
+            .lbl::before,
+            .lbl::after {
+                content: "";
+                display: block;
+                width: 30px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, var(--gold));
+            }
+            .lbl::after {
+                background: linear-gradient(90deg, var(--gold), transparent);
+            }
+            .lbl.mist {
+                color: var(--mist);
+            }
+            .lbl.mist::before {
+                background: linear-gradient(90deg, transparent, var(--mist));
+            }
+            .lbl.mist::after {
+                background: linear-gradient(90deg, var(--mist), transparent);
+            }
+
+            .hdg {
+                font-family: "Cinzel Decorative", serif;
+                font-size: clamp(1.8rem, 5vw, 3.4rem);
+                color: var(--cream);
+                text-align: center;
+                line-height: 1.2;
+                margin-top: 12px;
+                letter-spacing: 1px;
+            }
+            .hdg.gold {
+                color: var(--gold-lt);
+            }
+            .hdg.jade {
+                color: var(--mist);
+            }
+
+            .ornament-rule {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                margin: 18px auto;
+            }
+            .ornament-rule .line {
+                display: block;
+                width: 50px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, var(--gold));
+            }
+            .ornament-rule .line:last-child {
+                background: linear-gradient(90deg, var(--gold), transparent);
+            }
+            .ornament-rule .diamond {
+                width: 6px;
+                height: 6px;
+                background: var(--gold);
+                transform: rotate(45deg);
+                box-shadow: 0 0 8px rgba(201, 165, 90, 0.5);
+            }
+
+            /* ════════════════════════════════════════
+   REVEAL ANIMATIONS
+════════════════════════════════════════ */
+            .rv {
+                opacity: 0;
+                transform: translateY(28px);
+                transition:
+                    opacity 0.9s ease,
+                    transform 0.9s ease;
+            }
+            .rvl {
+                opacity: 0;
+                transform: translateX(-28px);
+                transition:
+                    opacity 0.9s ease,
+                    transform 0.9s ease;
+            }
+            .rvr {
+                opacity: 0;
+                transform: translateX(28px);
+                transition:
+                    opacity 0.9s ease,
+                    transform 0.9s ease;
+            }
+            .rvc {
+                opacity: 0;
+                transform: scale(0.94);
+                transition:
+                    opacity 0.9s ease,
+                    transform 0.9s ease;
+            }
+            .rv.on,
+            .rvl.on,
+            .rvr.on,
+            .rvc.on {
+                opacity: 1;
+                transform: none;
+            }
+            .d1 {
+                transition-delay: 0.12s;
+            }
+            .d2 {
+                transition-delay: 0.24s;
+            }
+            .d3 {
+                transition-delay: 0.36s;
+            }
+
+            /* ════════════════════════════════════════
+   QUOTE BAND
+════════════════════════════════════════ */
+            .quote-band {
+                padding: 90px 24px;
+                background: var(--forest);
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .quote-band::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(
+                    ellipse 70% 60% at 50% 50%,
+                    rgba(42, 92, 64, 0.2),
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+            .q-inner {
+                max-width: 680px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 1;
+            }
+            .q-deco {
+                font-family: "EB Garamond", serif;
+                font-style: italic;
+                font-size: 9rem;
+                color: rgba(42, 92, 64, 0.4);
+                position: absolute;
+                top: -50px;
+                left: -10px;
+                line-height: 1;
+                pointer-events: none;
+                user-select: none;
+            }
+            .q-text {
+                font-family: "EB Garamond", serif;
+                font-style: italic;
+                font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+                color: rgba(245, 240, 232, 0.7);
+                line-height: 2;
+                position: relative;
+                z-index: 1;
+            }
+            .q-src {
+                margin-top: 22px;
+                font-family: "Cinzel", serif;
+                font-size: 0.55rem;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                color: var(--gold);
+            }
+
+            /* ════════════════════════════════════════
+   COUPLE SECTION — Asymmetric layout
+════════════════════════════════════════ */
+            .couple-wrap {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0;
+                margin-top: 64px;
+                min-height: 560px;
+                border: 1px solid rgba(201, 165, 90, 0.15);
+                overflow: hidden;
+            }
+            .c-panel {
+                position: relative;
+                overflow: hidden;
+            }
+            .c-panel-img {
+                width: 100%;
+                height: 100%;
+                min-height: 400px;
+                object-fit: cover;
+                display: block;
+                transition:
+                    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    filter 0.5s;
+                filter: grayscale(0.3) contrast(1.05);
+            }
+            .c-panel:hover .c-panel-img {
+                transform: scale(1.04);
+                filter: grayscale(0) contrast(1.08);
+            }
+            .c-panel-ov {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to top,
+                    rgba(11, 21, 18, 0.9) 0%,
+                    rgba(11, 21, 18, 0.4) 50%,
+                    transparent 100%
+                );
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 36px 32px;
+            }
+            .c-tag {
+                font-family: "Cinzel", serif;
+                font-size: 0.52rem;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin-bottom: 8px;
+            }
+            .c-name {
+                font-family: "Cinzel Decorative", serif;
+                font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+                color: var(--cream);
+                line-height: 1.2;
+            }
+            .c-degree {
+                font-family: "EB Garamond", serif;
+                font-style: italic;
+                font-size: 0.88rem;
+                color: var(--mist);
+                margin-top: 5px;
+            }
+            .c-parent {
+                font-family: "Raleway", sans-serif;
+                font-weight: 300;
+                font-size: 0.75rem;
+                color: rgba(245, 240, 232, 0.5);
+                margin-top: 10px;
+                line-height: 1.8;
+                padding-top: 10px;
+                border-top: 1px solid rgba(201, 165, 90, 0.2);
+            }
+            .c-parent strong {
+                color: rgba(245, 240, 232, 0.7);
+                font-weight: 400;
+            }
+
+            /* Center divider for couple */
+            .c-divider {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 1px;
+                background: linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(201, 165, 90, 0.3),
+                    transparent
+                );
+                z-index: 2;
+                /* handled by grid gap=0, this is cosmetic */
+            }
+
+            @media (max-width: 720px) {
+                .couple-wrap {
+                    grid-template-columns: 1fr;
+                }
+                .c-panel-img {
+                    min-height: 320px;
+                }
+            }
+
+            /* ════════════════════════════════════════
+   EVENTS — Horizontal timeline
+════════════════════════════════════════ */
+            .ev-band {
+                background: var(--night);
+                padding: 96px 40px;
+                position: relative;
+                overflow: hidden;
+            }
+            .ev-band::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background:
+                    radial-gradient(
+                        ellipse 50% 60% at 10% 50%,
+                        rgba(26, 61, 43, 0.25),
+                        transparent 60%
+                    ),
+                    radial-gradient(
+                        ellipse 40% 50% at 90% 50%,
+                        rgba(15, 34, 24, 0.3),
+                        transparent 60%
+                    );
+                pointer-events: none;
+            }
+            .ev-inner {
+                max-width: 960px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 1;
+            }
+            .ev-timeline {
+                display: flex;
+                gap: 0;
+                margin-top: 56px;
+                position: relative;
+            }
+            .ev-timeline::before {
+                content: "";
+                position: absolute;
+                top: 28px;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(201, 165, 90, 0.3) 20%,
+                    rgba(201, 165, 90, 0.3) 80%,
+                    transparent
+                );
+            }
+            .ev-item {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 24px;
+                position: relative;
+                cursor: default;
+            }
+            .ev-node {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                border: 1px solid rgba(201, 165, 90, 0.4);
+                background: var(--night);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                z-index: 1;
+                transition:
+                    border-color 0.4s,
+                    box-shadow 0.4s,
+                    background 0.4s;
+                margin-bottom: 24px;
+            }
+            .ev-item:hover .ev-node {
+                border-color: var(--gold);
+                background: var(--emerald);
+                box-shadow: 0 0 20px rgba(201, 165, 90, 0.25);
+            }
+            .ev-node svg {
+                width: 20px;
+                height: 20px;
+                stroke: var(--gold);
+                fill: none;
+                stroke-width: 1.6;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                transition: stroke 0.4s;
+            }
+            .ev-item:hover .ev-node svg {
+                stroke: var(--gold-lt);
+            }
+            .ev-label {
+                font-family: "Cinzel", serif;
+                font-size: 0.58rem;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin-bottom: 8px;
+            }
+            .ev-type {
+                font-family: "Cinzel Decorative", serif;
+                font-size: 1.1rem;
+                color: var(--cream);
+                margin-bottom: 12px;
+            }
+            .ev-detail {
+                font-family: "Raleway", sans-serif;
+                font-weight: 300;
+                font-size: 0.7rem;
+                letter-spacing: 1px;
+                color: rgba(245, 240, 232, 0.38);
+                line-height: 2.2;
+            }
+            .ev-time {
+                font-family: "EB Garamond", serif;
+                font-style: italic;
+                font-size: 1.05rem;
+                color: var(--gold-lt);
+                margin-top: 10px;
+            }
+            @media (max-width: 720px) {
+                .ev-timeline {
+                    flex-direction: column;
+                    gap: 40px;
+                }
+                .ev-timeline::before {
+                    top: 0;
+                    bottom: 0;
+                    left: 28px;
+                    right: auto;
+                    width: 1px;
+                    height: auto;
+                }
+                .ev-item {
+                    flex-direction: row;
+                    text-align: left;
+                    gap: 20px;
+                    align-items: flex-start;
+                }
+                .ev-node {
+                    flex-shrink: 0;
+                    margin-bottom: 0;
+                }
+            }
+
+            /* ════════════════════════════════════════
+   COUNTDOWN
+════════════════════════════════════════ */
+            .cd-band {
+                padding: 96px 24px;
+                background: var(--forest);
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .cd-band::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(
+                    ellipse 80% 60% at 50% 50%,
+                    rgba(26, 61, 43, 0.3),
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+            .cd-grid {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: 50px;
+                position: relative;
+                z-index: 1;
+            }
+            .cd-box {
+                min-width: 110px;
+                border: 1px solid rgba(201, 165, 90, 0.2);
+                padding: 36px 24px 28px;
+                background: rgba(11, 21, 18, 0.5);
+                position: relative;
+                overflow: hidden;
+                backdrop-filter: blur(8px);
+                transition:
+                    border-color 0.4s,
+                    transform 0.3s,
+                    box-shadow 0.3s;
+            }
+            .cd-box:hover {
+                border-color: rgba(201, 165, 90, 0.5);
+                transform: translateY(-4px);
+                box-shadow:
+                    0 16px 40px rgba(0, 0, 0, 0.3),
+                    0 0 20px rgba(42, 92, 64, 0.2);
+            }
+            /* Corner accents on countdown boxes */
+            .cd-box::before,
+            .cd-box::after {
+                content: "";
+                position: absolute;
+                width: 10px;
+                height: 10px;
+            }
+            .cd-box::before {
+                top: 0;
+                left: 0;
+                border-top: 1px solid var(--gold);
+                border-left: 1px solid var(--gold);
+            }
+            .cd-box::after {
+                bottom: 0;
+                right: 0;
+                border-bottom: 1px solid var(--gold);
+                border-right: 1px solid var(--gold);
+            }
+            .cd-num {
+                font-family: "Cinzel Decorative", serif;
+                font-size: 3rem;
+                color: var(--gold-lt);
+                line-height: 1;
+                display: block;
+                text-shadow: 0 0 30px rgba(201, 165, 90, 0.3);
+            }
+            .cd-lbl {
+                font-family: "Cinzel", serif;
+                font-size: 0.52rem;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: var(--smoke);
+                margin-top: 8px;
+                display: block;
+            }
+
+            /* ════════════════════════════════════════
+   LOCATION — Split with botanical accent
+════════════════════════════════════════ */
+            .loc-head {
+                padding: 96px 24px 0;
+                max-width: 960px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .loc-layout {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                border: 1px solid rgba(201, 165, 90, 0.15);
+                overflow: hidden;
+                max-width: 1100px;
+                margin: 40px auto 0;
+                min-height: 460px;
+            }
+            @media (max-width: 720px) {
+                .loc-layout {
+                    grid-template-columns: 1fr;
+                }
+            }
+            .loc-img-wrap {
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+                min-height: 280px;
+            }
+            .loc-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition:
+                    transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    filter 0.5s;
+                filter: sepia(0.25) contrast(1.05);
+            }
+            .loc-img-wrap:hover .loc-img {
+                transform: scale(1.06);
+                filter: sepia(0) contrast(1.08);
+            }
+            .loc-img-ov {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to bottom,
+                    rgba(11, 21, 18, 0.15),
+                    rgba(11, 21, 18, 0.55)
+                );
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                padding-bottom: 28px;
+                transition: background 0.4s;
+            }
+            .loc-img-wrap:hover .loc-img-ov {
+                background: linear-gradient(
+                    to bottom,
+                    transparent,
+                    rgba(11, 21, 18, 0.35)
+                );
+            }
+            .loc-map-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 9px 20px;
+                border: 1px solid rgba(201, 165, 90, 0.5);
+                color: var(--gold-lt);
+                font-family: "Cinzel", serif;
+                font-size: 0.52rem;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                background: rgba(11, 21, 18, 0.5);
+                backdrop-filter: blur(4px);
+                transition:
+                    background 0.3s,
+                    border-color 0.3s;
+            }
+            .loc-img-wrap:hover .loc-map-btn {
+                background: rgba(42, 92, 64, 0.5);
+                border-color: var(--gold);
+            }
+            .loc-map-btn svg {
+                width: 12px;
+                height: 12px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            .loc-info {
+                background: var(--forest);
+                padding: 52px 44px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 22px;
+                border-left: 1px solid rgba(201, 165, 90, 0.1);
+            }
+            @media (max-width: 720px) {
+                .loc-info {
+                    padding: 36px 28px;
+                    border-left: none;
+                    border-top: 1px solid rgba(201, 165, 90, 0.1);
+                }
+            }
+            .loc-label {
+                font-family: "Cinzel", serif;
+                font-size: 0.5rem;
+                letter-spacing: 6px;
+                text-transform: uppercase;
+                color: var(--gold);
+            }
+            .loc-name {
+                font-family: "Cinzel Decorative", serif;
+                font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+                color: var(--cream);
+                line-height: 1.3;
+            }
+            .loc-addr {
+                font-family: "EB Garamond", serif;
+                font-style: italic;
+                font-size: 0.95rem;
+                color: rgba(245, 240, 232, 0.45);
+                line-height: 2;
+            }
+            .loc-row {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .loc-row svg {
+                width: 14px;
+                height: 14px;
+                stroke: var(--gold);
+                fill: none;
+                stroke-width: 1.6;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                flex-shrink: 0;
+            }
+            .loc-row span {
+                font-size: 0.7rem;
+                letter-spacing: 1px;
+                color: rgba(245, 240, 232, 0.42);
+                font-family: "Raleway", sans-serif;
+            }
+            .dir-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 12px 28px;
+                border: 1px solid rgba(201, 165, 90, 0.4);
+                color: var(--gold);
+                font-family: "Cinzel", serif;
+                font-size: 0.58rem;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                text-decoration: none;
+                background: transparent;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                width: fit-content;
+                transition: color 0.35s;
+            }
+            .dir-link::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    135deg,
+                    var(--jade),
+                    var(--emerald)
+                );
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.42s cubic-bezier(0.76, 0, 0.24, 1);
+            }
+            .dir-link:hover::before {
+                transform: scaleX(1);
+            }
+            .dir-link:hover {
+                color: var(--cream);
+            }
+            .dir-link span,
+            .dir-link svg {
+                position: relative;
+                z-index: 1;
+            }
+            .dir-link svg {
+                width: 12px;
+                height: 12px;
+                stroke: currentColor;
+                fill: none;
+                stroke-width: 2;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+            }
+
+            /* ════════════════════════════════════════
+   GALLERY — Cinematic grid
+════════════════════════════════════════ */
+            .gal-band {
+                padding: 96px 0;
+                background: var(--night);
+            }
+            .gal-head {
+                padding: 0 40px;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            .gal-grid {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                grid-template-rows: 200px 200px;
+                gap: 4px;
+                padding: 0 4px;
+            }
+            .gi {
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .gi img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition:
+                    transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    filter 0.5s;
+                filter: grayscale(0.2) contrast(1.04);
+            }
+            .gi:hover img {
+                transform: scale(1.07);
+                filter: grayscale(0) contrast(1.08);
+            }
+            .gi::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    to top,
+                    rgba(11, 21, 18, 0.5),
+                    transparent 60%
+                );
+                opacity: 0;
+                transition: opacity 0.4s;
+            }
+            .gi:hover::after {
+                opacity: 1;
+            }
+            /* Mosaic layout */
+            .gi:nth-child(1) {
+                grid-column: span 5;
+                grid-row: span 2;
+            }
+            .gi:nth-child(2) {
+                grid-column: span 4;
+                grid-row: span 1;
+            }
+            .gi:nth-child(3) {
+                grid-column: span 3;
+                grid-row: span 1;
+            }
+            .gi:nth-child(4) {
+                grid-column: span 3;
+                grid-row: span 1;
+            }
+            .gi:nth-child(5) {
+                grid-column: span 4;
+                grid-row: span 1;
+            }
+            @media (max-width: 720px) {
+                .gal-grid {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: auto;
+                }
+                .gi:nth-child(1) {
+                    grid-column: span 2;
+                    grid-row: span 1;
+                    height: 220px;
+                }
+                .gi:nth-child(n) {
+                    grid-column: span 1;
+                    height: 180px;
+                }
+            }
+
+            /* ════════════════════════════════════════
+   RSVP — Dark elegant form
+════════════════════════════════════════ */
+            .rsvp-band {
+                padding: 96px 40px;
+                background: var(--forest);
+                position: relative;
+                overflow: hidden;
+            }
+            .rsvp-band::before {
+                content: "";
+                position: absolute;
+                top: -200px;
+                right: -200px;
+                width: 500px;
+                height: 500px;
+                border-radius: 50%;
+                background: radial-gradient(
+                    circle,
+                    rgba(42, 92, 64, 0.2),
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+            .rsvp-band::after {
+                content: "";
+                position: absolute;
+                bottom: -150px;
+                left: -150px;
+                width: 380px;
+                height: 380px;
+                border-radius: 50%;
+                background: radial-gradient(
+                    circle,
+                    rgba(201, 165, 90, 0.06),
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+            .rsvp-inner {
+                max-width: 560px;
+                margin: 0 auto;
+                position: relative;
+                z-index: 1;
+            }
+            .rsvp-form {
+                margin-top: 40px;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+            .fg label {
+                display: block;
+                font-family: "Cinzel", serif;
+                font-size: 0.52rem;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: var(--gold);
+                margin-bottom: 8px;
+            }
+            .fg input,
+            .fg select,
+            .fg textarea {
+                width: 100%;
+                padding: 14px 16px;
+                background: rgba(11, 21, 18, 0.5);
+                border: 1px solid rgba(201, 165, 90, 0.2);
+                font-family: "Raleway", sans-serif;
+                font-weight: 300;
+                font-size: 0.88rem;
+                color: var(--cream);
+                outline: none;
+                appearance: none;
+                -webkit-appearance: none;
+                border-radius: 0;
+                transition:
+                    border-color 0.3s,
+                    box-shadow 0.3s,
+                    background 0.3s;
+                backdrop-filter: blur(4px);
+            }
+            .fg textarea {
+                height: 96px;
+                resize: none;
+            }
+            .fg input::placeholder,
+            .fg textarea::placeholder {
+                color: rgba(245, 240, 232, 0.25);
+            }
+            .fg input:focus,
+            .fg select:focus,
+            .fg textarea:focus {
+                border-color: rgba(201, 165, 90, 0.5);
+                box-shadow:
+                    0 0 0 3px rgba(201, 165, 90, 0.08),
+                    0 0 20px rgba(42, 92, 64, 0.15);
+                background: rgba(15, 34, 24, 0.6);
+            }
+            .fg select {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23c9a55a' d='M5 6L0 0h10z'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: right 14px center;
+                cursor: pointer;
+            }
+            .fg select option {
+                background: var(--forest);
+                color: var(--cream);
+            }
+            .rsvp-btn {
+                width: 100%;
+                padding: 15px;
+                background: transparent;
+                border: 1px solid rgba(201, 165, 90, 0.4);
+                color: var(--gold-lt);
+                font-family: "Cinzel", serif;
+                font-size: 0.62rem;
+                letter-spacing: 6px;
+                text-transform: uppercase;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                margin-top: 8px;
+                transition: color 0.35s;
+            }
+            .rsvp-btn::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(
+                    135deg,
+                    var(--jade),
+                    var(--emerald)
+                );
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+            }
+            .rsvp-btn:hover::before {
+                transform: scaleX(1);
+            }
+            .rsvp-btn:hover {
+                color: var(--cream);
+            }
+            .rsvp-btn span {
+                position: relative;
+                z-index: 1;
+            }
+            .rsvp-ok {
+                display: none;
+                text-align: center;
+                padding: 48px 0;
+            }
+            .rsvp-ok svg {
+                width: 44px;
+                height: 44px;
+                stroke: var(--mist);
+                fill: none;
+                stroke-width: 1.5;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                margin: 0 auto 16px;
+                display: block;
+            }
+            .rsvp-ok h3 {
+                font-family: "Cinzel Decorative", serif;
+                font-size: 1.8rem;
+                color: var(--gold-lt);
+            }
+            .rsvp-ok p {
+                font-family: "EB Garamond", serif;
+                font-style: italic;
+                font-size: 1rem;
+                color: rgba(245, 240, 232, 0.5);
+                margin-top: 10px;
+            }
+
+            /* ════════════════════════════════════════
+   CLOSING
+════════════════════════════════════════ */
+            .closing {
+                padding: 96px 24px;
+                background: var(--night);
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .closing-bg {
+                position: absolute;
+                inset: 0;
+                background-image: url("https://images.unsplash.com/photo-1518997554305-5eadf4f90e38?w=1400&auto=format&fit=crop&q=70");
+                background-size: cover;
+                background-position: center;
+                opacity: 0.08;
+                filter: grayscale(1);
+            }
+            .closing-aurora {
+                position: absolute;
+                inset: 0;
+                background:
+                    radial-gradient(
+                        ellipse 60% 50% at 30% 40%,
+                        rgba(26, 61, 43, 0.3),
+                        transparent 60%
+                    ),
+                    radial-gradient(
+                        ellipse 50% 40% at 70% 60%,
+                        rgba(15, 34, 24, 0.25),
+                        transparent 60%
+                    );
+                pointer-events: none;
+            }
+            .closing-inner {
+                position: relative;
+                z-index: 1;
+            }
+            .closing-eyebrow {
+                font-family: "Cinzel", serif;
+                font-size: 0.55rem;
+                letter-spacing: 7px;
+                text-transform: uppercase;
+                color: var(--mist);
+                opacity: 0.7;
+            }
+            .closing-text {
+                font-family: "EB Garamond", serif;
+                font-style: italic;
+                font-size: clamp(1rem, 2.3vw, 1.35rem);
+                color: rgba(245, 240, 232, 0.5);
+                max-width: 520px;
+                margin: 18px auto 0;
+                line-height: 2;
+            }
+            .closing-names {
+                font-family: "Cinzel Decorative", serif;
+                font-size: clamp(2rem, 7vw, 4.5rem);
+                color: var(--cream);
+                margin-top: 36px;
+                line-height: 1.15;
+                letter-spacing: 1px;
+                text-shadow: 0 0 60px rgba(201, 165, 90, 0.2);
+            }
+            .closing-date {
+                margin-top: 14px;
+                font-family: "Cinzel", serif;
+                font-size: 0.55rem;
+                letter-spacing: 7px;
+                text-transform: uppercase;
+                color: rgba(245, 240, 232, 0.22);
+            }
+
+            /* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+            footer {
+                background: var(--night);
+                border-top: 1px solid rgba(201, 165, 90, 0.1);
+                padding: 28px 24px;
+                text-align: center;
+            }
+            footer p {
+                font-family: "Cinzel", serif;
+                font-size: 0.52rem;
+                letter-spacing: 4px;
+                text-transform: uppercase;
+                color: rgba(245, 240, 232, 0.2);
+            }
+            .leaf {
+                display: inline-block;
+                color: var(--mist);
+                animation: leaf-sway 2.5s ease-in-out infinite;
+            }
+            @keyframes leaf-sway {
+                0%,
+                100% {
+                    transform: rotate(-8deg);
+                }
+                50% {
+                    transform: rotate(8deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- CURSOR -->
+        <div id="cur"></div>
+        <div id="cur-ring"></div>
+
+        <!-- AUDIO -->
+        <audio
+            id="bgm"
+            loop
+            preload="none"
+        >
+            <source
+                src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
+                type="audio/mpeg"
+            />
+        </audio>
+
+        <!-- MUSIC FAB -->
+        <div class="mring mr1"></div>
+        <div class="mring mr2"></div>
+        <button
+            id="mfab"
+            aria-label="Play/Pause"
+        >
+            <svg
+                id="ico-play"
+                viewBox="0 0 24 24"
+            >
+                <polygon points="5,3 19,12 5,21" />
+            </svg>
+            <svg
+                id="ico-pause"
+                viewBox="0 0 24 24"
+                style="display: none"
+            >
+                <rect
+                    x="6"
+                    y="4"
+                    width="4"
+                    height="16"
+                />
+                <rect
+                    x="14"
+                    y="4"
+                    width="4"
+                    height="16"
+                />
+            </svg>
+        </button>
+
+        <!-- ══════════════════════════════
+     OPENING VEIL
+══════════════════════════════ -->
+        <div id="veil">
+            <div class="aurora">
+                <div class="aurora-band ab1"></div>
+                <div class="aurora-band ab2"></div>
+                <div class="aurora-band ab3"></div>
+            </div>
+            <canvas
+                id="veil-stars"
+                style="position: absolute; inset: 0; pointer-events: none"
+            ></canvas>
+
+            <!-- Botanical SVG frame corners -->
+            <svg
+                style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 220px;
+                    opacity: 0.35;
+                    pointer-events: none;
+                "
+                viewBox="0 0 220 220"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M10 10 Q70 100 10 200"
+                    stroke="#c9a55a"
+                    stroke-width=".8"
+                    fill="none"
+                />
+                <path
+                    d="M10 10 Q120 70 210 10"
+                    stroke="#c9a55a"
+                    stroke-width=".8"
+                    fill="none"
+                />
+                <ellipse
+                    cx="40"
+                    cy="65"
+                    rx="16"
+                    ry="28"
+                    fill="#2a5c40"
+                    opacity=".6"
+                    transform="rotate(-25 40 65)"
+                />
+                <ellipse
+                    cx="75"
+                    cy="35"
+                    rx="12"
+                    ry="22"
+                    fill="#2a5c40"
+                    opacity=".45"
+                    transform="rotate(20 75 35)"
+                />
+                <ellipse
+                    cx="22"
+                    cy="120"
+                    rx="10"
+                    ry="18"
+                    fill="#1a3d2b"
+                    opacity=".55"
+                    transform="rotate(-10 22 120)"
+                />
+                <ellipse
+                    cx="110"
+                    cy="18"
+                    rx="8"
+                    ry="14"
+                    fill="#2a5c40"
+                    opacity=".4"
+                    transform="rotate(35 110 18)"
+                />
+                <circle
+                    cx="50"
+                    cy="14"
+                    r="3"
+                    fill="#c9a55a"
+                    opacity=".4"
+                />
+                <circle
+                    cx="160"
+                    cy="12"
+                    r="2"
+                    fill="#c9a55a"
+                    opacity=".3"
+                />
+                <circle
+                    cx="16"
+                    cy="155"
+                    r="2.5"
+                    fill="#4a7c5f"
+                    opacity=".5"
+                />
+                <path
+                    d="M35 80 Q50 70 60 85"
+                    stroke="#4a7c5f"
+                    stroke-width=".6"
+                    fill="none"
+                />
+                <path
+                    d="M80 28 Q90 18 100 28"
+                    stroke="#4a7c5f"
+                    stroke-width=".6"
+                    fill="none"
+                />
+            </svg>
+            <svg
+                style="
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 220px;
+                    opacity: 0.35;
+                    pointer-events: none;
+                    transform: scaleX(-1);
+                "
+                viewBox="0 0 220 220"
+                fill="none"
+            >
+                <path
+                    d="M10 10 Q70 100 10 200"
+                    stroke="#c9a55a"
+                    stroke-width=".8"
+                    fill="none"
+                />
+                <path
+                    d="M10 10 Q120 70 210 10"
+                    stroke="#c9a55a"
+                    stroke-width=".8"
+                    fill="none"
+                />
+                <ellipse
+                    cx="40"
+                    cy="65"
+                    rx="16"
+                    ry="28"
+                    fill="#2a5c40"
+                    opacity=".6"
+                    transform="rotate(-25 40 65)"
+                />
+                <ellipse
+                    cx="75"
+                    cy="35"
+                    rx="12"
+                    ry="22"
+                    fill="#2a5c40"
+                    opacity=".45"
+                    transform="rotate(20 75 35)"
+                />
+                <ellipse
+                    cx="22"
+                    cy="120"
+                    rx="10"
+                    ry="18"
+                    fill="#1a3d2b"
+                    opacity=".55"
+                    transform="rotate(-10 22 120)"
+                />
+            </svg>
+            <svg
+                style="
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 220px;
+                    opacity: 0.35;
+                    pointer-events: none;
+                    transform: scaleY(-1);
+                "
+                viewBox="0 0 220 220"
+                fill="none"
+            >
+                <path
+                    d="M10 10 Q70 100 10 200"
+                    stroke="#c9a55a"
+                    stroke-width=".8"
+                    fill="none"
+                />
+                <path
+                    d="M10 10 Q120 70 210 10"
+                    stroke="#c9a55a"
+                    stroke-width=".8"
+                    fill="none"
+                />
+                <ellipse
+                    cx="40"
+                    cy="65"
+                    rx="16"
+                    ry="28"
+                    fill="#2a5c40"
+                    opacity=".6"
+                    transform="rotate(-25 40 65)"
+                />
+                <ellipse
+                    cx="75"
+                    cy="35"
+                    rx="12"
+                    ry="22"
+                    fill="#2a5c40"
+                    opacity=".45"
+                    transform="rotate(20 75 35)"
+                />
+            </svg>
+            <svg
+                style="
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 220px;
+                    opacity: 0.35;
+                    pointer-events: none;
+                    transform: scale(-1);
+                "
+                viewBox="0 0 220 220"
+                fill="none"
+            >
+                <path
+                    d="M10 10 Q70 100 10 200"
+                    stroke="#c9a55a"
+                    stroke-width=".8"
+                    fill="none"
+                />
+                <path
+                    d="M10 10 Q120 70 210 10"
+                    stroke="#c9a55a"
+                    stroke-width=".8"
+                    fill="none"
+                />
+                <ellipse
+                    cx="40"
+                    cy="65"
+                    rx="16"
+                    ry="28"
+                    fill="#2a5c40"
+                    opacity=".6"
+                    transform="rotate(-25 40 65)"
+                />
+            </svg>
+
+            <p class="veil-mono">The Wedding of</p>
+            <h1 class="veil-names">
+                Nadira
+                <span class="veil-amp">&amp;</span>
+                Fabian
+            </h1>
+            <div class="veil-ornament">
+                <span>14 Februari 2026</span>
+            </div>
+            <button
+                class="veil-open"
+                id="open-btn"
+            >
+                <span>Buka Undangan</span>
+            </button>
+        </div>
+
+        <!-- ══════════════════════════════
+     SITE CONTENT
+══════════════════════════════ -->
+        <div
+            id="site"
+            style="display: none"
+        >
+            <!-- HERO -->
+            <div class="hero">
+                <div class="hero-bg"></div>
+                <div class="hero-ov"></div>
+                <div class="hero-aurora"></div>
+                <div class="hero-grain"></div>
+                <canvas id="star-canvas"></canvas>
+
+                <!-- Botanical corner ornaments -->
+                <div class="hero-corners">
+                    <svg
+                        class="hc hc-tl"
+                        width="180"
+                        viewBox="0 0 180 180"
+                        fill="none"
+                    >
+                        <path
+                            d="M8 8 Q60 90 8 172"
+                            stroke="#c9a55a"
+                            stroke-width=".7"
+                            fill="none"
+                        />
+                        <path
+                            d="M8 8 Q95 58 172 8"
+                            stroke="#c9a55a"
+                            stroke-width=".7"
+                            fill="none"
+                        />
+                        <ellipse
+                            cx="32"
+                            cy="56"
+                            rx="13"
+                            ry="22"
+                            fill="#2a5c40"
+                            opacity=".65"
+                            transform="rotate(-25 32 56)"
+                        />
+                        <ellipse
+                            cx="62"
+                            cy="28"
+                            rx="10"
+                            ry="18"
+                            fill="#1a3d2b"
+                            opacity=".5"
+                            transform="rotate(20 62 28)"
+                        />
+                        <ellipse
+                            cx="18"
+                            cy="100"
+                            rx="8"
+                            ry="15"
+                            fill="#2a5c40"
+                            opacity=".5"
+                            transform="rotate(-10 18 100)"
+                        />
+                        <path
+                            d="M28 70 Q40 62 48 76"
+                            stroke="#4a7c5f"
+                            stroke-width=".7"
+                            fill="none"
+                        />
+                        <circle
+                            cx="42"
+                            cy="12"
+                            r="2.5"
+                            fill="#c9a55a"
+                            opacity=".5"
+                        />
+                        <circle
+                            cx="130"
+                            cy="10"
+                            r="2"
+                            fill="#c9a55a"
+                            opacity=".35"
+                        />
+                    </svg>
+                    <svg
+                        class="hc hc-tr"
+                        width="180"
+                        viewBox="0 0 180 180"
+                        fill="none"
+                    >
+                        <path
+                            d="M8 8 Q60 90 8 172"
+                            stroke="#c9a55a"
+                            stroke-width=".7"
+                            fill="none"
+                        />
+                        <path
+                            d="M8 8 Q95 58 172 8"
+                            stroke="#c9a55a"
+                            stroke-width=".7"
+                            fill="none"
+                        />
+                        <ellipse
+                            cx="32"
+                            cy="56"
+                            rx="13"
+                            ry="22"
+                            fill="#2a5c40"
+                            opacity=".65"
+                            transform="rotate(-25 32 56)"
+                        />
+                        <ellipse
+                            cx="62"
+                            cy="28"
+                            rx="10"
+                            ry="18"
+                            fill="#1a3d2b"
+                            opacity=".5"
+                            transform="rotate(20 62 28)"
+                        />
+                    </svg>
+                    <svg
+                        class="hc hc-bl"
+                        width="180"
+                        viewBox="0 0 180 180"
+                        fill="none"
+                    >
+                        <path
+                            d="M8 8 Q60 90 8 172"
+                            stroke="#c9a55a"
+                            stroke-width=".7"
+                            fill="none"
+                        />
+                        <path
+                            d="M8 8 Q95 58 172 8"
+                            stroke="#c9a55a"
+                            stroke-width=".7"
+                            fill="none"
+                        />
+                        <ellipse
+                            cx="32"
+                            cy="56"
+                            rx="13"
+                            ry="22"
+                            fill="#2a5c40"
+                            opacity=".65"
+                            transform="rotate(-25 32 56)"
+                        />
+                    </svg>
+                    <svg
+                        class="hc hc-br"
+                        width="180"
+                        viewBox="0 0 180 180"
+                        fill="none"
+                    >
+                        <path
+                            d="M8 8 Q60 90 8 172"
+                            stroke="#c9a55a"
+                            stroke-width=".7"
+                            fill="none"
+                        />
+                        <path
+                            d="M8 8 Q95 58 172 8"
+                            stroke="#c9a55a"
+                            stroke-width=".7"
+                            fill="none"
+                        />
+                    </svg>
+                </div>
+
+                <div class="hero-body">
+                    <div class="h-eyebrow">The Wedding of</div>
+                    <h1 class="h-names">
+                        Nadira <span class="h-amp">&amp;</span> Fabian
+                    </h1>
+                    <p class="h-date">
+                        SABTU &nbsp;·&nbsp; 14 FEBRUARI 2026 &nbsp;·&nbsp;
+                        JAKARTA
+                    </p>
+                    <p class="h-venue">Raffles Hotel Jakarta</p>
+                    <div class="h-divider">
+                        <span></span>
+                        <div class="h-diamond"></div>
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="scroll-cue">
+                    <span>Scroll</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </div>
+
+            <!-- QUOTE -->
+            <div class="quote-band">
+                <div class="q-inner rv">
+                    <div class="q-deco">"</div>
+                    <blockquote class="q-text">
+                        Dan di antara tanda-tanda kekuasaan-Nya ialah Dia
+                        menciptakan untukmu istri-istri dari jenismu sendiri,
+                        supaya kamu cenderung dan merasa tenteram kepadanya, dan
+                        dijadikan-Nya di antaramu rasa kasih dan sayang.
+                    </blockquote>
+                    <p class="q-src">— QS. Ar-Rum : 21</p>
+                </div>
+            </div>
+
+            <!-- COUPLE -->
+            <section class="sec-dark sec-full">
+                <div
+                    style="max-width: 960px; margin: 0 auto; text-align: center"
+                >
+                    <p class="lbl rv">Yang Berbahagia</p>
+                    <h2 class="hdg rv">Mempelai</h2>
+                    <div class="ornament-rule rv">
+                        <span class="line"></span>
+                        <div class="diamond"></div>
+                        <span class="line"></span>
+                    </div>
+                </div>
+                <div
+                    class="couple-wrap rv"
+                    style="margin-top: 52px"
+                >
+                    <div class="c-panel">
+                        <img
+                            class="c-panel-img"
+                            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=700&auto=format&fit=crop&q=80"
+                            alt="Nadira"
+                            loading="lazy"
+                        />
+                        <div class="c-panel-ov">
+                            <p class="c-tag">Mempelai Wanita</p>
+                            <h3 class="c-name">Nadira Salsabila</h3>
+                            <p class="c-degree">S.Psi., M.A.</p>
+                            <p class="c-parent">
+                                Putri pertama dari<br /><strong
+                                    >Bpk. Irfan Hakim</strong
+                                >
+                                &amp; <strong>Ibu Ratna Sari</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="c-panel">
+                        <img
+                            class="c-panel-img"
+                            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=700&auto=format&fit=crop&q=80"
+                            alt="Fabian"
+                            loading="lazy"
+                        />
+                        <div class="c-panel-ov">
+                            <p class="c-tag">Mempelai Pria</p>
+                            <h3 class="c-name">Fabian Ardhana</h3>
+                            <p class="c-degree">S.Ars., M.Sc.</p>
+                            <p class="c-parent">
+                                Putra kedua dari<br /><strong
+                                    >Bpk. Ardhana Putra</strong
+                                >
+                                &amp; <strong>Ibu Dewi Kusuma</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EVENTS -->
+            <div class="ev-band">
+                <div class="ev-inner">
+                    <p class="lbl mist rv">Rangkaian Acara</p>
+                    <h2 class="hdg gold rv">Detail Acara</h2>
+                    <div class="ornament-rule rv">
+                        <span class="line"></span>
+                        <div class="diamond"></div>
+                        <span class="line"></span>
+                    </div>
+
+                    <div class="ev-timeline">
+                        <div class="ev-item rv">
+                            <div class="ev-node">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="ev-label">Sesi I</p>
+                                <h3 class="ev-type">Akad Nikah</h3>
+                                <p class="ev-detail">
+                                    Sabtu · 14 Februari 2026<br />Grand
+                                    Ballroom, Lt. 2<br />Raffles Hotel Jakarta
+                                </p>
+                                <p class="ev-time">08.00 – 10.00 WIB</p>
+                            </div>
+                        </div>
+                        <div class="ev-item rv d1">
+                            <div class="ev-node">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M8 22h8M12 11v11M5 2h14l-2 9a5 5 0 01-10 0L5 2z"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="ev-label">Sesi II</p>
+                                <h3 class="ev-type">Resepsi Siang</h3>
+                                <p class="ev-detail">
+                                    Sabtu · 14 Februari 2026<br />Grand
+                                    Ballroom, Lt. 2<br />Raffles Hotel Jakarta
+                                </p>
+                                <p class="ev-time">11.00 – 14.00 WIB</p>
+                            </div>
+                        </div>
+                        <div class="ev-item rv d2">
+                            <div class="ev-node">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"
+                                    />
+                                    <circle
+                                        cx="12"
+                                        cy="10"
+                                        r="3"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="ev-label">Sesi III</p>
+                                <h3 class="ev-type">Malam Resepsi</h3>
+                                <p class="ev-detail">
+                                    Sabtu · 14 Februari 2026<br />Grand
+                                    Ballroom, Lt. 2<br />Raffles Hotel Jakarta
+                                </p>
+                                <p class="ev-time">18.00 – 21.00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COUNTDOWN -->
+            <div class="cd-band">
+                <div
+                    style="
+                        max-width: 920px;
+                        margin: 0 auto;
+                        position: relative;
+                        z-index: 1;
+                    "
+                >
+                    <p class="lbl rv">Menghitung Hari</p>
+                    <h2 class="hdg rv">Hitung Mundur</h2>
+                    <div class="ornament-rule rv">
+                        <span class="line"></span>
+                        <div class="diamond"></div>
+                        <span class="line"></span>
+                    </div>
+                    <div class="cd-grid rv">
+                        <div class="cd-box">
+                            <span
+                                class="cd-num"
+                                id="cd-d"
+                                >--</span
+                            ><span class="cd-lbl">Hari</span>
+                        </div>
+                        <div class="cd-box">
+                            <span
+                                class="cd-num"
+                                id="cd-h"
+                                >--</span
+                            ><span class="cd-lbl">Jam</span>
+                        </div>
+                        <div class="cd-box">
+                            <span
+                                class="cd-num"
+                                id="cd-m"
+                                >--</span
+                            ><span class="cd-lbl">Menit</span>
+                        </div>
+                        <div class="cd-box">
+                            <span
+                                class="cd-num"
+                                id="cd-s"
+                                >--</span
+                            ><span class="cd-lbl">Detik</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOCATION -->
+            <div
+                class="loc-head sec-dark"
+                style="padding-bottom: 0"
+            >
+                <p class="lbl rv">Tempat Pelaksanaan</p>
+                <h2 class="hdg rv">Lokasi Acara</h2>
+                <div class="ornament-rule rv">
+                    <span class="line"></span>
+                    <div class="diamond"></div>
+                    <span class="line"></span>
+                </div>
+            </div>
+            <div
+                class="sec-dark"
+                style="padding: 0 0 96px"
+            >
+                <div class="loc-layout rv">
+                    <div
+                        class="loc-img-wrap"
+                        onclick="
+                            window.open(
+                                'https://maps.google.com/?q=Raffles+Hotel+Jakarta',
+                                '_blank',
+                            )
+                        "
+                    >
+                        <img
+                            class="loc-img"
+                            src="https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=800&auto=format&fit=crop&q=80"
+                            alt="Venue"
+                            loading="lazy"
+                        />
+                        <div class="loc-img-ov">
+                            <div class="loc-map-btn">
+                                <svg viewBox="0 0 24 24">
+                                    <polygon
+                                        points="3 11 22 2 13 21 11 13 3 11"
+                                    />
+                                </svg>
+                                Buka Google Maps
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loc-info">
+                        <p class="loc-label">Venue</p>
+                        <h3 class="loc-name">Raffles Hotel<br />Jakarta</h3>
+                        <p class="loc-addr">
+                            Jl. Cikin Raya No.1<br />Jakarta Pusat, 10340
+                        </p>
+                        <div
+                            style="
+                                display: flex;
+                                flex-direction: column;
+                                gap: 10px;
+                            "
+                        >
+                            <div class="loc-row">
+                                <svg viewBox="0 0 24 24">
+                                    <rect
+                                        x="3"
+                                        y="3"
+                                        width="7"
+                                        height="7"
+                                    />
+                                    <rect
+                                        x="14"
+                                        y="3"
+                                        width="7"
+                                        height="7"
+                                    />
+                                    <rect
+                                        x="14"
+                                        y="14"
+                                        width="7"
+                                        height="7"
+                                    />
+                                    <rect
+                                        x="3"
+                                        y="14"
+                                        width="7"
+                                        height="7"
+                                    />
+                                </svg>
+                                <span>Grand Ballroom — Lantai 2</span>
+                            </div>
+                            <div class="loc-row">
+                                <svg viewBox="0 0 24 24">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="10"
+                                    />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                                <span>14 Februari 2026 · 08.00 WIB</span>
+                            </div>
+                            <div class="loc-row">
+                                <svg viewBox="0 0 24 24">
+                                    <rect
+                                        x="1"
+                                        y="3"
+                                        width="22"
+                                        height="13"
+                                        rx="2"
+                                    />
+                                    <path d="M16 16l1 5M8 16l-1 5M1 10h22" />
+                                </svg>
+                                <span>Valet parking tersedia</span>
+                            </div>
+                        </div>
+                        <a
+                            class="dir-link"
+                            href="https://maps.google.com/?q=Raffles+Hotel+Jakarta"
+                            target="_blank"
+                        >
+                            <svg viewBox="0 0 24 24">
+                                <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                            </svg>
+                            <span>Petunjuk Arah</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GALLERY -->
+            <div class="gal-band">
+                <div class="gal-head">
+                    <p class="lbl rv">Momen Bersama</p>
+                    <h2 class="hdg rv">Galeri Foto</h2>
+                    <div class="ornament-rule rv">
+                        <span class="line"></span>
+                        <div class="diamond"></div>
+                        <span class="line"></span>
+                    </div>
+                </div>
+                <div class="gal-grid rv">
+                    <div class="gi">
+                        <img
+                            src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&auto=format&fit=crop&q=80"
+                            alt=""
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="gi">
+                        <img
+                            src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&auto=format&fit=crop&q=80"
+                            alt=""
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="gi">
+                        <img
+                            src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&auto=format&fit=crop&q=80"
+                            alt=""
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="gi">
+                        <img
+                            src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=600&auto=format&fit=crop&q=80"
+                            alt=""
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="gi">
+                        <img
+                            src="https://images.unsplash.com/photo-1511285560929-80b456503681?w=600&auto=format&fit=crop&q=80"
+                            alt=""
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- RSVP -->
+            <div class="rsvp-band">
+                <div class="rsvp-inner">
+                    <p class="lbl mist rv">Konfirmasi Kehadiran</p>
+                    <h2 class="hdg gold rv">RSVP</h2>
+                    <div class="ornament-rule rv">
+                        <span class="line"></span>
+                        <div class="diamond"></div>
+                        <span class="line"></span>
+                    </div>
+                    <p
+                        class="rv"
+                        style="
+                            text-align: center;
+                            font-family: &quot;EB Garamond&quot;, serif;
+                            font-style: italic;
+                            font-size: 1rem;
+                            color: rgba(245, 240, 232, 0.5);
+                            margin-top: 14px;
+                            line-height: 2;
+                        "
+                    >
+                        Mohon konfirmasi kehadiran Anda paling lambat<br />
+                        <strong style="color: var(--gold)"
+                            >1 Februari 2026</strong
+                        >
+                    </p>
+                    <div class="rsvp-form rv">
+                        <div class="fg">
+                            <label>Nama Lengkap</label
+                            ><input
+                                type="text"
+                                id="r-name"
+                                placeholder="Nama Anda..."
+                            />
+                        </div>
+                        <div class="fg">
+                            <label>Nomor WhatsApp</label
+                            ><input
+                                type="tel"
+                                id="r-phone"
+                                placeholder="+62..."
+                            />
+                        </div>
+                        <div class="fg">
+                            <label>Konfirmasi Kehadiran</label>
+                            <select id="r-attend">
+                                <option value="">— Pilih —</option>
+                                <option value="hadir">Insyaallah Hadir</option>
+                                <option value="tidak">Tidak Dapat Hadir</option>
+                            </select>
+                        </div>
+                        <div class="fg">
+                            <label>Sesi Acara</label>
+                            <select id="r-sess">
+                                <option value="">— Pilih Sesi —</option>
+                                <option>Akad Nikah (08.00)</option>
+                                <option>Resepsi Siang (11.00)</option>
+                                <option>Malam Resepsi (18.00)</option>
+                                <option>Semua Sesi</option>
+                            </select>
+                        </div>
+                        <div class="fg">
+                            <label>Ucapan &amp; Doa</label
+                            ><textarea
+                                id="r-msg"
+                                placeholder="Tuliskan doa dan ucapan tulus Anda..."
+                            ></textarea>
+                        </div>
+                        <button
+                            class="rsvp-btn"
+                            id="rsvp-submit"
+                        >
+                            <span>Kirim Konfirmasi</span>
+                        </button>
+                    </div>
+                    <div
+                        class="rsvp-ok"
+                        id="rsvp-ok"
+                    >
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+                            />
+                        </svg>
+                        <h3>Terima Kasih</h3>
+                        <p>
+                            Kami sangat menantikan kehadiran dan doa restu Anda
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLOSING -->
+            <div class="closing">
+                <div class="closing-bg"></div>
+                <div class="closing-aurora"></div>
+                <div class="closing-inner">
+                    <p class="lbl mist rv">Dengan Penuh Cinta</p>
+                    <div class="ornament-rule rv">
+                        <span class="line"></span>
+                        <div class="diamond"></div>
+                        <span class="line"></span>
+                    </div>
+                    <p class="closing-text rv">
+                        Dengan rendah hati dan penuh sukacita, kami mengundang
+                        Bapak / Ibu / Saudara/i untuk hadir dan memberikan doa
+                        restu dalam momen paling istimewa dalam hidup kami.
+                    </p>
+                    <div class="closing-names rv">Nadira &amp; Fabian</div>
+                    <p class="closing-date rv">14 · 02 · 2026</p>
+                </div>
+            </div>
+
+            <footer>
+                <p>
+                    Dibuat dengan <span class="leaf">🌿</span> untuk hari paling
+                    istimewa &nbsp;·&nbsp; Nadira &amp; Fabian &nbsp;·&nbsp;
+                    2026
+                </p>
+            </footer>
+        </div>
+        <!-- end #site -->
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                /* ── REFS ───────────────────────────────── */
+                var veil = document.getElementById("veil");
+                var site = document.getElementById("site");
+                var openBtn = document.getElementById("open-btn");
+                var bgm = document.getElementById("bgm");
+                var icoPlay = document.getElementById("ico-play");
+                var icoPause = document.getElementById("ico-pause");
+                var mfab = document.getElementById("mfab");
+                var curEl = document.getElementById("cur");
+                var curRing = document.getElementById("cur-ring");
+                var rsvpBtn = document.getElementById("rsvp-submit");
+
+                var opened = false;
+                var playing = false;
+                var starsInit = false;
+
+                /* ── VEIL STAR FIELD ────────────────────── */
+                (function initVeilStars() {
+                    var vc = document.getElementById("veil-stars");
+                    if (!vc) return;
+                    function sizeVc() {
+                        vc.width = window.innerWidth;
+                        vc.height = window.innerHeight;
+                    }
+                    sizeVc();
+                    window.addEventListener("resize", sizeVc);
+                    var vctx = vc.getContext("2d");
+                    var stars = [];
+                    for (var i = 0; i < 160; i++) {
+                        stars.push({
+                            x: Math.random() * vc.width,
+                            y: Math.random() * vc.height,
+                            r: Math.random() * 1.2 + 0.2,
+                            a: Math.random(),
+                            s: (Math.random() - 0.5) * 0.008,
+                            twinkle: Math.random() * Math.PI * 2,
+                        });
+                    }
+                    function drawVeilStars() {
+                        vctx.clearRect(0, 0, vc.width, vc.height);
+                        stars.forEach(function (s) {
+                            s.twinkle += 0.02;
+                            s.a = 0.3 + Math.sin(s.twinkle) * 0.3;
+                            vctx.beginPath();
+                            vctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                            vctx.fillStyle = "rgba(232,204,138," + s.a + ")";
+                            vctx.fill();
+                        });
+                        if (!opened) requestAnimationFrame(drawVeilStars);
+                    }
+                    drawVeilStars();
+                })();
+
+                /* ── CURSOR ─────────────────────────────── */
+                var mx = 0,
+                    my = 0,
+                    rx = 0,
+                    ry = 0;
+                document.addEventListener("mousemove", function (e) {
+                    mx = e.clientX;
+                    my = e.clientY;
+                    curEl.style.left = mx + "px";
+                    curEl.style.top = my + "px";
+                });
+                (function rl() {
+                    rx += (mx - rx) * 0.11;
+                    ry += (my - ry) * 0.11;
+                    curRing.style.left = rx + "px";
+                    curRing.style.top = ry + "px";
+                    requestAnimationFrame(rl);
+                })();
+                document.addEventListener("mouseover", function (e) {
+                    var hot =
+                        e.target &&
+                        e.target.closest &&
+                        e.target.closest(
+                            "a,button,.gi,.loc-img-wrap,.ev-item,.cd-box",
+                        );
+                    curEl.style.width = hot ? "20px" : "8px";
+                    curEl.style.height = hot ? "20px" : "8px";
+                    curEl.style.background = hot
+                        ? "var(--mist)"
+                        : "var(--gold)";
+                    curEl.style.borderRadius = hot ? "3px" : "50%";
+                    curRing.style.width = hot ? "50px" : "32px";
+                    curRing.style.height = hot ? "50px" : "32px";
+                    curRing.style.opacity = hot ? ".25" : ".6";
+                });
+
+                /* ── STAR CANVAS (hero, init after open) ─── */
+                var sc,
+                    sctx,
+                    heroStars = [];
+
+                function initHeroStars() {
+                    sc = document.getElementById("star-canvas");
+                    if (!sc) return;
+                    function sz() {
+                        sc.width = window.innerWidth;
+                        sc.height = window.innerHeight;
+                    }
+                    sz();
+                    window.addEventListener("resize", sz);
+                    sctx = sc.getContext("2d");
+                    heroStars = [];
+                    for (var i = 0; i < 120; i++) {
+                        heroStars.push({
+                            x: Math.random() * sc.width,
+                            y: Math.random() * sc.height,
+                            r: Math.random() * 1.4 + 0.2,
+                            a: Math.random(),
+                            tw: Math.random() * Math.PI * 2,
+                            spd: 0.015 + Math.random() * 0.02,
+                        });
+                    }
+                    drawHeroStars();
+                }
+
+                function drawHeroStars() {
+                    if (!sc || !sctx) return;
+                    sctx.clearRect(0, 0, sc.width, sc.height);
+                    heroStars.forEach(function (s) {
+                        s.tw += s.spd;
+                        var alpha = 0.25 + Math.sin(s.tw) * 0.35;
+                        sctx.beginPath();
+                        sctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                        sctx.fillStyle =
+                            "rgba(232,204,138," + Math.max(0, alpha) + ")";
+                        sctx.fill();
+                        // Occasional sparkle cross
+                        if (s.r > 1.1) {
+                            sctx.strokeStyle =
+                                "rgba(232,204,138," + alpha * 0.5 + ")";
+                            sctx.lineWidth = 0.5;
+                            var len = s.r * 3;
+                            sctx.beginPath();
+                            sctx.moveTo(s.x - len, s.y);
+                            sctx.lineTo(s.x + len, s.y);
+                            sctx.moveTo(s.x, s.y - len);
+                            sctx.lineTo(s.x, s.y + len);
+                            sctx.stroke();
+                        }
+                    });
+                    requestAnimationFrame(drawHeroStars);
+                }
+
+                /* ── OPEN ───────────────────────────────── */
+                openBtn.addEventListener("click", function () {
+                    if (opened) return;
+                    opened = true;
+                    veil.classList.add("gone");
+                    site.style.display = "";
+                    setTimeout(function () {
+                        initHeroStars();
+                        countdownTick();
+                        setInterval(countdownTick, 1000);
+                        setTimeout(initReveal, 120);
+                        startMusic();
+                    }, 100);
+                });
+
+                /* ── MUSIC ──────────────────────────────── */
+                function startMusic() {
+                    bgm.volume = 0.38;
+                    var p = bgm.play();
+                    if (p !== undefined) {
+                        p.then(function () {
+                            setPlaying(true);
+                        }).catch(function () {
+                            document.addEventListener(
+                                "click",
+                                function onTap() {
+                                    bgm.play()
+                                        .then(function () {
+                                            setPlaying(true);
+                                        })
+                                        .catch(function () {});
+                                    document.removeEventListener(
+                                        "click",
+                                        onTap,
+                                    );
+                                },
+                            );
+                        });
+                    }
+                }
+                function setPlaying(v) {
+                    playing = v;
+                    icoPlay.style.display = v ? "none" : "";
+                    icoPause.style.display = v ? "" : "none";
+                }
+                mfab.addEventListener("click", function () {
+                    if (playing) {
+                        bgm.pause();
+                        setPlaying(false);
+                    } else {
+                        bgm.play()
+                            .then(function () {
+                                setPlaying(true);
+                            })
+                            .catch(function () {});
+                    }
+                });
+
+                /* ── SCROLL REVEAL ──────────────────────── */
+                function initReveal() {
+                    if (!("IntersectionObserver" in window)) {
+                        document
+                            .querySelectorAll(".rv,.rvl,.rvr,.rvc")
+                            .forEach(function (el) {
+                                el.classList.add("on");
+                            });
+                        return;
+                    }
+                    var obs = new IntersectionObserver(
+                        function (entries) {
+                            entries.forEach(function (e) {
+                                if (e.isIntersecting)
+                                    e.target.classList.add("on");
+                            });
+                        },
+                        { threshold: 0.1 },
+                    );
+                    document
+                        .querySelectorAll(".rv,.rvl,.rvr,.rvc")
+                        .forEach(function (el) {
+                            obs.observe(el);
+                        });
+                }
+
+                /* ── COUNTDOWN ──────────────────────────── */
+                var TARGET = new Date("2026-02-14T08:00:00+07:00");
+                function countdownTick() {
+                    var els = ["cd-d", "cd-h", "cd-m", "cd-s"].map(
+                        function (id) {
+                            return document.getElementById(id);
+                        },
+                    );
+                    if (!els[0]) return;
+                    var diff = Math.max(0, TARGET - new Date());
+                    var pad = function (n) {
+                        return String(Math.floor(n)).padStart(2, "0");
+                    };
+                    els[0].textContent = pad(diff / 864e5);
+                    els[1].textContent = pad((diff % 864e5) / 36e5);
+                    els[2].textContent = pad((diff % 36e5) / 6e4);
+                    els[3].textContent = pad((diff % 6e4) / 1e3);
+                }
+
+                /* ── RSVP ───────────────────────────────── */
+                rsvpBtn.addEventListener("click", function () {
+                    var name = document.getElementById("r-name");
+                    var attend = document.getElementById("r-attend");
+                    if (
+                        !name ||
+                        !name.value.trim() ||
+                        !attend ||
+                        !attend.value
+                    ) {
+                        alert("Mohon isi nama dan konfirmasi kehadiran Anda");
+                        return;
+                    }
+                    var form = document.querySelector(".rsvp-form");
+                    var ok = document.getElementById("rsvp-ok");
+                    if (form) form.style.display = "none";
+                    if (ok) ok.style.display = "block";
+                });
+
+                /* ── PARALLAX subtle scroll effect ─────── */
+                window.addEventListener("scroll", function () {
+                    var hero = document.querySelector(".hero-bg");
+                    if (hero) {
+                        var scrolled = window.pageYOffset;
+                        hero.style.transform =
+                            "scale(1.08) translateY(" + scrolled * 0.15 + "px)";
+                    }
+                });
+            }); // DOMContentLoaded
+        </script>
+    </body>
+</html>
