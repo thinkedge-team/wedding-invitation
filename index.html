@@ -76,7 +76,7 @@
       .rvr { opacity:0; transform:translateX(28px);  transition: opacity .8s ease, transform .8s ease; }
       .rv.on, .rvl.on, .rvr.on { opacity:1; transform:none; }
       .d1 { transition-delay:.1s; } .d2 { transition-delay:.18s; }
-      .d3 { transition-delay:.26s; } .d4 { transition-delay:.34s; }
+      .d3 { transition-delay:.26s; } .d4 { transition-delay:.34s; } .d5 { transition-delay:.42s; }
 
       /* ════════════════════════════════════════
          NAVBAR
@@ -389,6 +389,8 @@
       .tc-2::before { background: linear-gradient(90deg, transparent, #b5634a, transparent); }
       .tc-3::before { background: linear-gradient(90deg, transparent, #c96228, transparent); }
       .tc-4::before { background: linear-gradient(90deg, transparent, #4a7c5f, transparent); }
+      .tc-5::before { background: linear-gradient(90deg, transparent, #2d6cc0, transparent); }
+      .tc-6::before { background: linear-gradient(90deg, transparent, #c05070, transparent); }
 
       /* Card Preview */
       .theme-preview {
@@ -469,6 +471,34 @@
                     radial-gradient(ellipse 40% 40% at 50% 50%, rgba(201,165,90,.06), transparent 60%);
       }
 
+      /* Theme 5 — Cerulean Tides */
+      .tp-5 {
+        background: linear-gradient(160deg, #050e1d 0%, #0a1628 50%, #1a4a8a 100%);
+      }
+      .tp-5 .tp-eyebrow { color: rgba(138,184,232,.7); }
+      .tp-5 .tp-h { font-family: "Cormorant Garamond", serif; font-size: clamp(1.6rem,4vw,2.1rem); color: #f8f5f0; text-shadow: 0 0 40px rgba(45,108,192,.5); }
+      .tp-5 .tp-date { color: rgba(77,144,217,.8); }
+      .tp-5-wave {
+        position: absolute; inset: 0;
+        background: radial-gradient(ellipse 70% 50% at 30% 40%, rgba(26,74,138,.5), transparent 60%),
+                    radial-gradient(ellipse 50% 50% at 80% 70%, rgba(45,108,192,.35), transparent 55%),
+                    radial-gradient(ellipse 40% 30% at 60% 20%, rgba(77,144,217,.15), transparent 50%);
+      }
+
+      /* Theme 6 — Romantic Bloom */
+      .tp-6 {
+        background: linear-gradient(160deg, #fffdf9 0%, #fff5f8 50%, #fceef2 100%);
+      }
+      .tp-6 .tp-eyebrow { color: rgba(192,80,112,.7); }
+      .tp-6 .tp-h { font-family: "Cormorant Garamond", serif; font-size: clamp(1.6rem,4vw,2.1rem); color: #2a1820; text-shadow: none; }
+      .tp-6 .tp-date { color: rgba(154,48,88,.7); }
+      .tp-6-bloom {
+        position: absolute; inset: 0;
+        background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(245,184,202,.35), transparent 65%),
+                    radial-gradient(ellipse 40% 50% at 20% 70%, rgba(212,112,138,.15), transparent 60%),
+                    radial-gradient(ellipse 35% 40% at 80% 20%, rgba(248,221,229,.4), transparent 55%);
+      }
+
       /* Preview overlay with "Live Demo" button */
       .theme-preview-overlay {
         position: absolute; inset: 0; z-index: 3;
@@ -511,6 +541,8 @@
       .tag-2 { color: #d9a990; border-color: rgba(217,169,144,.3); background: rgba(217,169,144,.08); }
       .tag-3 { color: #d4844a; border-color: rgba(212,132,74,.3); background: rgba(212,132,74,.08); }
       .tag-4 { color: #8ab89a; border-color: rgba(138,184,154,.3); background: rgba(138,184,154,.08); }
+      .tag-5 { color: #4d90d9; border-color: rgba(77,144,217,.3); background: rgba(77,144,217,.08); }
+      .tag-6 { color: #c05070; border-color: rgba(192,80,112,.3); background: rgba(192,80,112,.08); }
 
       .theme-desc {
         font-size: .8rem; color: var(--muted); line-height: 1.75;
@@ -545,7 +577,7 @@
         white-space: nowrap;
       }
       .btn-add svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-      .ba-1, .ba-2, .ba-3, .ba-4 { background: linear-gradient(135deg, var(--gold), var(--gold-lt)); color: var(--night); }
+      .ba-1, .ba-2, .ba-3, .ba-4, .ba-5, .ba-6 { background: linear-gradient(135deg, var(--gold), var(--gold-lt)); color: var(--night); }
       .btn-add:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(201,165,90,.3); }
       .btn-add.added {
         background: linear-gradient(135deg, #4a7c5f, #6ab88a) !important;
@@ -848,6 +880,8 @@
       .cs-2 { background: linear-gradient(135deg, #faf6f0, #f0e4d4); color: #b5634a; }
       .cs-3 { background: linear-gradient(135deg, #faf4ec, #e8d5b0); color: #b84c1e; }
       .cs-4 { background: linear-gradient(135deg, #0b1512, #1a3d2b); color: #8ab89a; }
+      .cs-5 { background: linear-gradient(135deg, #050e1d, #1a4a8a); color: #8ab8e8; }
+      .cs-6 { background: linear-gradient(135deg, #fff5f8, #fceef2); color: #c05070; }
 
       .cart-item-info { flex: 1; min-width: 0; }
       .cart-item-name { font-size: .82rem; font-weight: 500; color: var(--cream); margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -1065,7 +1099,7 @@
 
         <div class="hero-stats">
           <div class="stat-item">
-            <div class="stat-num">4<span>+</span></div>
+            <div class="stat-num">6<span>+</span></div>
             <div class="stat-lbl">Tema Eksklusif</div>
           </div>
           <div class="stat-sep"></div>
@@ -1207,7 +1241,7 @@
                 <div class="tp-names">
                   <div class="tp-eyebrow">The Wedding of</div>
                   <div class="tp-h">Amara &amp; Kenji</div>
-                  <div class="tp-date">08 · 08 · 2025 · Bali</div>
+                  <div class="tp-date">14 · 02 · 2026 · Jakarta</div>
                 </div>
               </div>
               <div class="theme-preview-overlay">
@@ -1284,6 +1318,98 @@
                   <span class="price-note">sekali bayar</span>
                 </div>
                 <button class="btn-add ba-4" onclick="addToCart(4)" data-id="4">
+                  <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Tambah
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Theme 5: Cerulean Tides -->
+          <div class="theme-card tc-5 rv d5">
+            <div class="theme-preview">
+              <div class="theme-preview-inner tp-5">
+                <div class="tp-deco tp-5-wave"></div>
+                <div class="tp-names">
+                  <div class="tp-eyebrow">The Wedding of</div>
+                  <div class="tp-h">Amara &amp; Rayhan</div>
+                  <div class="tp-date">21 · 06 · 2026 · Jakarta</div>
+                </div>
+              </div>
+              <div class="theme-preview-overlay">
+                <a href="showcase-5.html" target="_blank" class="btn-demo">
+                  <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Lihat Demo
+                </a>
+              </div>
+            </div>
+            <div class="theme-body">
+              <div class="theme-meta">
+                <h3 class="theme-name">Cerulean Tides</h3>
+                <span class="theme-tag tag-5">Elegansi Laut</span>
+              </div>
+              <p class="theme-desc">
+                Megah dan memukau seperti samudra biru dalam. Palet Ocean Elegance dengan animasi gelombang dan partikel riak menghadirkan nuansa pernikahan yang cinematic dan mendalam.
+              </p>
+              <div class="theme-features">
+                <span class="feat-pill">Wave Canvas</span>
+                <span class="feat-pill">Tidal Ripple</span>
+                <span class="feat-pill">Countdown</span>
+                <span class="feat-pill">RSVP</span>
+                <span class="feat-pill">Galeri</span>
+              </div>
+              <div class="theme-footer">
+                <div class="theme-price">
+                  <span class="price-val">Rp 299.000</span>
+                  <span class="price-note">sekali bayar</span>
+                </div>
+                <button class="btn-add ba-5" onclick="addToCart(5)" data-id="5">
+                  <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  Tambah
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Theme 6: Romantic Bloom -->
+          <div class="theme-card tc-6 rv d5">
+            <div class="theme-preview">
+              <div class="theme-preview-inner tp-6">
+                <div class="tp-deco tp-6-bloom"></div>
+                <div class="tp-names">
+                  <div class="tp-eyebrow">The Wedding of</div>
+                  <div class="tp-h">Amara &amp; Rayhan</div>
+                  <div class="tp-date">21 · 06 · 2026 · Jakarta</div>
+                </div>
+              </div>
+              <div class="theme-preview-overlay">
+                <a href="showcase-6.html" target="_blank" class="btn-demo">
+                  <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Lihat Demo
+                </a>
+              </div>
+            </div>
+            <div class="theme-body">
+              <div class="theme-meta">
+                <h3 class="theme-name">Romantic Bloom</h3>
+                <span class="theme-tag tag-6">Elegan Feminin</span>
+              </div>
+              <p class="theme-desc">
+                Lembut dan penuh kasih. Palet blush pink dan rose gold yang hangat menghadirkan nuansa pernikahan yang romantis, feminin, dan menyentuh hati.
+              </p>
+              <div class="theme-features">
+                <span class="feat-pill">Petal Effect</span>
+                <span class="feat-pill">Floral Ornament</span>
+                <span class="feat-pill">Countdown</span>
+                <span class="feat-pill">RSVP</span>
+                <span class="feat-pill">Galeri</span>
+              </div>
+              <div class="theme-footer">
+                <div class="theme-price">
+                  <span class="price-val">Rp 199.000</span>
+                  <span class="price-note">sekali bayar</span>
+                </div>
+                <button class="btn-add ba-6" onclick="addToCart(6)" data-id="6">
                   <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                   Tambah
                 </button>
@@ -1486,6 +1612,8 @@
             <a href="showcase-2.html" target="_blank" class="footer-link">Romantic Blush</a>
             <a href="showcase-3.html" target="_blank" class="footer-link">Terracotta Japonisme</a>
             <a href="showcase-4.html" target="_blank" class="footer-link">Midnight Botanical</a>
+            <a href="showcase-5.html" target="_blank" class="footer-link">Cerulean Tides</a>
+            <a href="showcase-6.html" target="_blank" class="footer-link">Romantic Bloom</a>
           </div>
           <div class="footer-links">
             <div class="footer-link-title">Hubungi Kami</div>
@@ -1612,6 +1740,8 @@
         2: { name: "Romantic Blush",        price: 149000, file: "showcase-2.html", swatchClass: "cs-2" },
         3: { name: "Terracotta Japonisme",  price: 199000, file: "showcase-3.html", swatchClass: "cs-3" },
         4: { name: "Midnight Botanical",    price: 249000, file: "showcase-4.html", swatchClass: "cs-4" },
+        5: { name: "Cerulean Tides",         price: 299000, file: "showcase-5.html", swatchClass: "cs-5" },
+        6: { name: "Romantic Bloom",          price: 199000, file: "showcase-6.html", swatchClass: "cs-6" },
       };
 
       /* ─── CART STATE ─── */

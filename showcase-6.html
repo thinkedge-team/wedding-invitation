@@ -1,0 +1,1934 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+<title>Amara &amp; Rayhan — Romantic Bloom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%}
+
+:root{
+  --blush-deep:   #f2c8d4;
+  --blush:        #f8dde5;
+  --blush-light:  #fceef2;
+  --blush-pale:   #fff5f8;
+  --cream:        #fffdf9;
+  --white:        #ffffff;
+  --rose:         #d4708a;
+  --rose-dk:      #c05070;
+  --rose-deep:    #9a3058;
+  --mauve:        #c46882;
+  --petal:        #f5b8ca;
+  --gold:         #b8845a;
+  --gold-lt:      #d0a070;
+  --charcoal:     #2a1820;
+  --plum:         #6a2840;
+  --taupe:        #7a5860;
+  --dusty:        #9a7880;
+  --text-main:    #2a1820;
+  --text-body:    #4a3040;
+  --text-muted:   #7a5860;
+  --text-light:   #9a8090;
+}
+
+body{
+  background:var(--cream);
+  color:var(--text-main);
+  font-family:'Jost',sans-serif;
+  font-weight:400;
+  overflow-x:hidden;
+  cursor:none;
+  line-height:1.6;
+}
+@media(max-width:768px){body{cursor:auto}}
+
+/* ═══════════════════════════
+   CURSOR
+═══════════════════════════ */
+#cur{
+  position:fixed;width:10px;height:10px;border-radius:50% 0 50% 50%;
+  background:var(--rose);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%) rotate(-45deg);
+  left:-20px;top:-20px;
+  mix-blend-mode:multiply;
+  transition:width .2s,height .2s,border-radius .2s;
+}
+#cur-ring{
+  position:fixed;width:30px;height:30px;border-radius:50%;
+  border:1.5px solid rgba(192,80,112,.35);
+  pointer-events:none;z-index:9998;
+  left:-40px;top:-40px;transform:translate(-50%,-50%);
+  transition:all .28s;opacity:.6;
+}
+#cur.big{width:28px;height:28px;border-radius:50%}
+@media(max-width:768px){#cur,#cur-ring{display:none}}
+
+/* ═══════════════════════════
+   PETAL CANVAS
+═══════════════════════════ */
+#bloom-canvas{
+  position:fixed;inset:0;pointer-events:none;z-index:5;
+  opacity:0;transition:opacity 2.5s ease;
+}
+#bloom-canvas.show{opacity:1}
+
+/* ═══════════════════════════
+   OPENING VEIL
+═══════════════════════════ */
+#veil{
+  position:fixed;inset:0;z-index:9000;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  overflow:hidden;transition:opacity 1.8s ease,visibility 1.8s;
+}
+#veil.gone{opacity:0;visibility:hidden;pointer-events:none}
+
+.veil-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 100%,rgba(242,200,212,.65) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 20%,rgba(248,221,229,.7) 0%,transparent 50%),
+    radial-gradient(ellipse 50% 60% at 80% 10%,rgba(242,200,212,.5) 0%,transparent 50%),
+    linear-gradient(160deg,#fff8f9 0%,#fceef2 40%,#f8e0e8 100%);
+}
+
+.veil-diamond{
+  position:absolute;border-radius:2px;
+  border:1px solid rgba(184,132,90,.18);
+  transform:rotate(45deg);pointer-events:none;
+}
+.vd1{width:280px;height:280px;top:50%;left:50%;margin-top:-140px;margin-left:-140px}
+.vd2{width:440px;height:440px;top:50%;left:50%;margin-top:-220px;margin-left:-220px;border-color:rgba(184,132,90,.1)}
+.vd3{width:600px;height:600px;top:50%;left:50%;margin-top:-300px;margin-left:-300px;border-color:rgba(184,132,90,.06);animation:diamond-spin 60s linear infinite}
+@keyframes diamond-spin{from{transform:rotate(45deg)}to{transform:rotate(405deg)}}
+
+.veil-content{position:relative;z-index:2;text-align:center;padding:0 24px;width:100%;max-width:600px}
+
+.veil-monogram{
+  width:80px;height:80px;border-radius:50%;
+  border:1.5px solid rgba(184,132,90,.35);
+  background:linear-gradient(135deg,rgba(248,221,229,.9),rgba(255,255,255,.95));
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 24px;
+  box-shadow:0 8px 40px rgba(160,80,110,.18),inset 0 0 20px rgba(255,255,255,.8);
+  opacity:0;animation:bloom-rise 1s .2s ease forwards;
+}
+.veil-mono-txt{
+  font-family:'Great Vibes',cursive;font-size:2.2rem;color:var(--rose-dk);line-height:1;
+}
+.veil-tag{
+  font-family:'Jost';font-size:.7rem;letter-spacing:8px;
+  font-weight:500;
+  text-transform:uppercase;color:var(--dusty);
+  display:block;margin-bottom:20px;
+  opacity:0;animation:bloom-rise .8s .7s ease forwards;
+}
+.veil-name1,.veil-name2{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;
+  font-size:clamp(4.5rem,18vw,9.5rem);
+  line-height:1;color:var(--charcoal);
+  opacity:0;
+  letter-spacing:-1px;
+}
+.veil-name1{animation:bloom-rise-l 1.2s .9s ease forwards}
+.veil-amp{
+  font-family:'Great Vibes',cursive;font-size:clamp(2rem,7vw,4rem);
+  color:var(--rose-dk);display:block;margin:4px 0;
+  opacity:0;animation:bloom-rise 1s 1.3s ease forwards;
+}
+.veil-name2{animation:bloom-rise-r 1.2s 1.5s ease forwards}
+
+.veil-divider{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  margin:28px auto 22px;max-width:280px;
+  opacity:0;animation:bloom-rise .8s 1.9s ease forwards;
+}
+.veil-divider::before,.veil-divider::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(184,132,90,.45));
+}
+.veil-divider::after{background:linear-gradient(90deg,rgba(184,132,90,.45),transparent)}
+.veil-divider span{
+  font-family:'Jost';font-size:.72rem;letter-spacing:5px;font-weight:500;
+  text-transform:uppercase;color:var(--gold);white-space:nowrap
+}
+
+.veil-date{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:clamp(1.15rem,3.5vw,1.55rem);color:var(--plum);font-weight:500;
+  opacity:0;animation:bloom-rise .8s 2s ease forwards;margin-bottom:6px;
+}
+.veil-venue{
+  font-family:'Jost';font-size:.75rem;letter-spacing:2px;font-weight:400;
+  text-transform:uppercase;color:var(--text-muted);
+  opacity:0;animation:bloom-rise .8s 2.1s ease forwards;margin-bottom:36px;
+}
+
+.veil-btn{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:17px 52px;
+  background:linear-gradient(135deg,var(--rose-dk),var(--mauve));
+  border:none;color:var(--white);
+  font-family:'Jost';font-size:.72rem;font-weight:500;letter-spacing:6px;text-transform:uppercase;
+  cursor:pointer;position:relative;overflow:hidden;
+  border-radius:100px;
+  box-shadow:0 10px 36px rgba(160,80,110,.4);
+  opacity:0;animation:bloom-rise 1s 2.4s ease forwards;
+  transition:transform .3s,box-shadow .3s,letter-spacing .3s;
+  -webkit-tap-highlight-color:transparent;
+}
+.veil-btn::before{
+  content:'';position:absolute;inset:0;border-radius:100px;
+  background:linear-gradient(135deg,var(--mauve),var(--rose-deep));
+  opacity:0;transition:opacity .4s;
+}
+.veil-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 48px rgba(160,80,110,.5);letter-spacing:8px}
+.veil-btn:hover::before{opacity:1}
+.veil-btn:active{transform:scale(.97)}
+.veil-btn span{position:relative;z-index:1}
+.veil-btn-heart{position:relative;z-index:1;width:14px;height:14px;fill:rgba(255,255,255,.8)}
+
+@keyframes bloom-rise{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:none}
+}
+@keyframes bloom-rise-l{
+  from{opacity:0;transform:translateX(-36px) translateY(16px)}
+  to{opacity:1;transform:none}
+}
+@keyframes bloom-rise-r{
+  from{opacity:0;transform:translateX(36px) translateY(16px)}
+  to{opacity:1;transform:none}
+}
+
+/* ═══════════════════════════
+   MUSIC FAB
+═══════════════════════════ */
+#mfab{
+  position:fixed;bottom:28px;right:28px;z-index:8500;
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,var(--rose-dk),var(--mauve));
+  border:2px solid rgba(255,255,255,.45);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  box-shadow:0 8px 28px rgba(160,80,110,.45);
+  transition:transform .3s,box-shadow .3s;
+  -webkit-tap-highlight-color:transparent;
+}
+#mfab:hover{transform:scale(1.1)}
+#mfab:active{transform:scale(.94)}
+#mfab svg{width:16px;height:16px;stroke:white;fill:none;stroke-width:2;stroke-linecap:round}
+.mring{position:fixed;border-radius:50%;pointer-events:none;border:1px solid rgba(192,80,112,.3);animation:mring 2.8s ease-out infinite}
+.mr1{bottom:14px;right:14px;z-index:8499;width:82px;height:82px}
+.mr2{bottom:6px;right:6px;z-index:8498;width:98px;height:98px;animation-delay:.7s;border-color:rgba(192,80,112,.15)}
+@keyframes mring{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.65);opacity:0}}
+
+/* ═══════════════════════════
+   SITE
+═══════════════════════════ */
+#site{display:none}
+
+/* ═══════════════════════════
+   HERO
+═══════════════════════════ */
+.hero{
+  min-height:100vh;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#fffdf9 0%,#fff5f8 55%,#fceef2 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-watermark{
+  position:absolute;right:-5%;top:50%;transform:translateY(-50%);
+  font-size:clamp(40vw,70vh,70vh);line-height:1;
+  opacity:.055;pointer-events:none;
+  color:var(--rose-dk);
+  display:flex;align-items:center;justify-content:center;
+  animation:wm-float 14s ease-in-out infinite alternate;
+}
+@keyframes wm-float{from{transform:translateY(-52%) rotate(-4deg)}to{transform:translateY(-48%) rotate(4deg)}}
+.hero-stripe{
+  position:absolute;height:1px;left:0;right:0;
+  background:linear-gradient(90deg,transparent 0%,rgba(184,132,90,.28) 20%,rgba(184,132,90,.28) 80%,transparent 100%);
+  pointer-events:none;
+}
+.hs-top{top:10%}.hs-bot{bottom:10%}
+
+.hero-body{
+  position:relative;z-index:3;
+  display:grid;grid-template-columns:1fr 1fr;
+  max-width:1180px;width:100%;padding:0 64px;align-items:center;
+}
+@media(max-width:920px){
+  .hero-body{grid-template-columns:1fr;padding:80px 28px 60px;text-align:center;gap:0}
+  .hero-right{display:none}
+}
+@media(max-width:480px){
+  .hero-body{padding:80px 20px 60px}
+}
+
+.hero-left{padding:40px 0}
+.h-pretag{
+  font-family:'Jost';font-size:.72rem;letter-spacing:7px;font-weight:500;
+  text-transform:uppercase;color:var(--text-muted);
+  display:flex;align-items:center;gap:12px;margin-bottom:28px;
+  animation:h-fade 1s .2s ease backwards;
+}
+@media(max-width:920px){.h-pretag{justify-content:center}}
+.h-pretag::before{
+  content:'';display:block;width:36px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--dusty));
+}
+@media(max-width:920px){.h-pretag::before{display:none}}
+
+.h-names-wrap{margin-bottom:24px;overflow:hidden}
+.h-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.8rem,10vw,7.5rem);
+  font-weight:600;
+  color:var(--charcoal);line-height:.95;
+  letter-spacing:-2px;display:block;
+}
+.h-name.bride{animation:h-slide-up 1.2s .4s cubic-bezier(.16,1,.3,1) backwards}
+.h-name.groom{animation:h-slide-up 1.2s .6s cubic-bezier(.16,1,.3,1) backwards}
+.h-and{
+  font-family:'Great Vibes',cursive;font-size:clamp(2rem,5.5vw,3.8rem);
+  color:var(--rose-dk);display:block;line-height:1.3;
+  animation:h-fade 1s .8s ease backwards;
+  margin:6px 0;
+}
+
+.h-info-row{
+  display:flex;align-items:center;gap:0;
+  margin-bottom:36px;
+  animation:h-fade 1s .9s ease backwards;
+}
+@media(max-width:920px){.h-info-row{justify-content:center;flex-wrap:wrap;gap:12px}}
+.h-info-date{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+  font-size:clamp(1rem,2.5vw,1.25rem);color:var(--plum);
+}
+.h-info-sep{width:1px;height:36px;background:rgba(184,132,90,.3);margin:0 20px}
+@media(max-width:920px){.h-info-sep{display:none}}
+.h-info-venue{font-family:'Jost';font-size:.78rem;font-weight:400;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);line-height:1.6}
+
+.h-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:15px 38px;
+  border:1.5px solid var(--rose-dk);
+  background:transparent;color:var(--rose-dk);
+  font-family:'Jost';font-size:.72rem;font-weight:500;letter-spacing:5px;text-transform:uppercase;
+  cursor:pointer;border-radius:100px;
+  transition:background .35s,color .35s,transform .2s,box-shadow .35s;
+  animation:h-fade .8s 1.2s ease backwards;
+  -webkit-tap-highlight-color:transparent;
+}
+.h-cta:hover{background:var(--rose-dk);color:white;transform:translateY(-2px);box-shadow:0 10px 30px rgba(160,80,110,.35)}
+.h-cta:active{transform:scale(.97)}
+.h-cta-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0;animation:dot-pulse 2s infinite}
+@keyframes dot-pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
+
+.hero-right{
+  display:flex;flex-direction:column;align-items:flex-end;
+  animation:h-fade 1.2s .5s ease backwards;
+}
+.hero-date-display{text-align:right}
+.h-day-big{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:clamp(6rem,16vw,13rem);
+  color:var(--blush-deep);
+  line-height:.9;letter-spacing:-4px;
+  -webkit-text-stroke:1px rgba(184,132,90,.25);
+  position:relative;
+}
+.h-month-year{
+  font-family:'Jost';font-size:.75rem;font-weight:500;letter-spacing:8px;
+  text-transform:uppercase;color:var(--text-muted);text-align:right;
+  margin-top:-6px;
+}
+.h-scroll-hint{
+  display:flex;align-items:center;gap:10px;margin-top:40px;
+  font-family:'Jost';font-size:.65rem;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--text-light);
+}
+.h-scroll-hint::after{content:'';display:block;width:1px;height:50px;background:linear-gradient(to bottom,var(--rose),transparent)}
+
+.hero-bottom-deco{
+  position:absolute;bottom:28px;left:64px;z-index:3;
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+  font-size:.95rem;color:var(--text-muted);
+  animation:h-fade 1s 1.5s ease backwards;
+}
+@media(max-width:920px){.hero-bottom-deco{left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.82rem}}
+
+@keyframes h-slide-up{from{opacity:0;transform:translateY(55px)}to{opacity:1;transform:none}}
+@keyframes h-fade{from{opacity:0}to{opacity:1}}
+
+/* ═══════════════════════════
+   WAVE TRANSITIONS
+═══════════════════════════ */
+.wave-sep{
+  display:block;width:100%;overflow:hidden;
+  line-height:0;pointer-events:none;
+  position:relative;z-index:2;
+}
+.wave-sep svg{display:block;width:100%;}
+
+/* ═══════════════════════════
+   SECTION SHARED
+═══════════════════════════ */
+.sec-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--blush);border:1px solid rgba(184,132,90,.22);
+  padding:7px 22px;border-radius:100px;
+  font-family:'Jost';font-size:.68rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--rose-dk);
+  margin-bottom:16px;
+}
+.sec-tag-dot{width:5px;height:5px;border-radius:50%;background:var(--rose-dk);flex-shrink:0}
+.sec-hdg{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(2.2rem,5.5vw,3.8rem);
+  color:var(--charcoal);line-height:1.15;
+  letter-spacing:-.5px;
+}
+.sec-hdg em{font-style:italic;color:var(--rose-dk)}
+.sec-hdg.light{color:var(--white)}
+.sec-hdg.rose{color:var(--rose-deep)}
+.sec-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+  font-size:clamp(1rem,2.5vw,1.25rem);color:var(--text-muted);
+  line-height:1.75;margin-top:12px;
+}
+
+.ornament{
+  display:flex;align-items:center;justify-content:center;
+  gap:0;margin:20px auto 40px;max-width:240px;
+}
+.ornament .o-l{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(184,132,90,.4))}
+.ornament .o-r{flex:1;height:1px;background:linear-gradient(90deg,rgba(184,132,90,.4),transparent)}
+.ornament .o-mid{display:flex;gap:6px;align-items:center;padding:0 10px}
+.o-d{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.o-ds{width:3px;height:3px;background:rgba(184,132,90,.5);transform:rotate(45deg);flex-shrink:0}
+
+/* ═══════════════════════════
+   SCROLL REVEAL
+═══════════════════════════ */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .85s ease,transform .85s cubic-bezier(.16,1,.3,1)}
+.rvl{opacity:0;transform:translateX(-36px);transition:opacity .85s ease,transform .85s cubic-bezier(.16,1,.3,1)}
+.rvr{opacity:0;transform:translateX(36px);transition:opacity .85s ease,transform .85s cubic-bezier(.16,1,.3,1)}
+.rvc{opacity:0;transform:scale(.93);transition:opacity .85s ease,transform .85s cubic-bezier(.16,1,.3,1)}
+.rv.on,.rvl.on,.rvr.on,.rvc.on{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.38s}.d4{transition-delay:.52s}.d5{transition-delay:.66s}
+
+/* ═══════════════════════════
+   BISMILLAH
+═══════════════════════════ */
+.bismillah-band{
+  background:linear-gradient(180deg,#fceef2 0%,#ffffff 40%,#ffffff 100%);
+  padding:90px 24px;
+  position:relative;overflow:hidden;
+}
+.bism-deco{position:absolute;font-size:5rem;opacity:.06;pointer-events:none;line-height:1}
+.bd-tl{top:20px;left:24px;transform:rotate(-30deg)}
+.bd-tr{top:20px;right:24px;transform:rotate(30deg)}
+.bd-bl{bottom:20px;left:24px;transform:rotate(-150deg)}
+.bd-br{bottom:20px;right:24px;transform:rotate(150deg)}
+
+.bismillah-inner{max-width:680px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.bismillah-arabic{
+  font-size:clamp(2.4rem,5.5vw,3.8rem);color:var(--rose-deep);
+  margin-bottom:24px;line-height:1.7;
+  text-shadow:0 4px 20px rgba(154,48,88,.14);
+}
+.bism-line{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  margin:0 auto 28px;max-width:380px;
+}
+.bism-line::before,.bism-line::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(184,132,90,.4))}
+.bism-line::after{background:linear-gradient(90deg,rgba(184,132,90,.4),transparent)}
+.bism-line-gem{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.bismillah-text{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+  font-size:clamp(1.1rem,2.5vw,1.35rem);
+  color:var(--text-body);
+  max-width:520px;margin:0 auto 12px;line-height:1.95;
+}
+.bismillah-ref{
+  font-family:'Jost';font-size:.72rem;font-weight:500;letter-spacing:5px;
+  text-transform:uppercase;color:var(--text-muted);
+}
+
+.guest-card{
+  margin-top:48px;display:inline-block;
+  background:linear-gradient(135deg,var(--blush-pale),var(--blush-light));
+  border:1px solid rgba(184,132,90,.28);
+  padding:24px 52px;border-radius:4px;
+  position:relative;
+  box-shadow:0 8px 32px rgba(160,80,110,.12);
+}
+.guest-card::before,.guest-card::after{content:'';position:absolute;width:16px;height:16px}
+.guest-card::before{top:-1px;left:-1px;border-top:2px solid var(--rose-dk);border-left:2px solid var(--rose-dk);border-radius:2px 0 0 0}
+.guest-card::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--rose-dk);border-right:2px solid var(--rose-dk);border-radius:0 0 2px 0}
+.guest-for{font-family:'Jost';font-size:.65rem;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:8px}
+.guest-name{font-family:'Great Vibes',cursive;font-size:clamp(2rem,5.5vw,2.8rem);color:var(--rose-deep)}
+
+/* ═══════════════════════════
+   QUOTE
+═══════════════════════════ */
+.quote-band{
+  background:linear-gradient(180deg,#fdf0f4 0%,#f8dde5 40%,#f5cdd8 100%);
+  padding:80px 24px;text-align:center;position:relative;overflow:hidden;
+}
+.quote-deco-l,.quote-deco-r{
+  position:absolute;font-family:'Cormorant Garamond',serif;
+  font-size:22rem;line-height:1;color:rgba(192,80,112,.1);pointer-events:none;
+}
+.quote-deco-l{top:-60px;left:-10px}
+.quote-deco-r{bottom:-60px;right:-10px}
+.quote-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.q-text{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+  font-size:clamp(1.25rem,3.2vw,1.9rem);color:var(--charcoal);
+  line-height:1.8;margin-bottom:24px;
+}
+.q-source{
+  font-family:'Jost';font-size:.7rem;font-weight:500;letter-spacing:5px;
+  text-transform:uppercase;color:var(--rose-dk);
+}
+
+/* ═══════════════════════════
+   COUPLE
+═══════════════════════════ */
+.couple-band{
+  background:linear-gradient(180deg,#fef7f9 0%,#fffdf9 60%,#fffdf9 100%);
+  padding:90px 24px;
+  position:relative;overflow:hidden;
+}
+.couple-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(248,221,229,.5) 0%,transparent 65%);
+}
+.couple-inner{max-width:1040px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.couple-grid{
+  display:grid;grid-template-columns:1fr 60px 1fr;
+  gap:0;align-items:start;margin-top:60px;
+}
+@media(max-width:720px){
+  .couple-grid{grid-template-columns:1fr;gap:48px}
+  .couple-sep{display:none}
+}
+
+.couple-card{position:relative;text-align:center;padding:0}
+.couple-photo-frame{position:relative;display:inline-block;margin-bottom:28px}
+.couple-photo-outer{
+  width:190px;height:190px;border-radius:50%;margin:0 auto;
+  background:linear-gradient(135deg,var(--petal),var(--blush-deep),var(--rose),var(--petal));
+  padding:3px;
+  box-shadow:0 14px 50px rgba(160,80,110,.22);
+}
+.couple-photo-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;border:4px solid white}
+.couple-photo-inner img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-petal{
+  position:absolute;font-size:1.3rem;opacity:.35;pointer-events:none;
+  animation:petal-orbit var(--d) linear infinite;
+  animation-delay:var(--del);
+}
+@keyframes petal-orbit{
+  0%{transform:rotate(0deg) translateX(100px) rotate(0deg);opacity:.25}
+  50%{opacity:.5}
+  100%{transform:rotate(360deg) translateX(100px) rotate(-360deg);opacity:.25}
+}
+.couple-card-info{padding:0 20px}
+.couple-role{
+  display:inline-block;background:var(--blush);
+  border:1px solid rgba(184,132,90,.22);
+  padding:6px 20px;border-radius:100px;
+  font-family:'Jost';font-size:.65rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--rose-dk);
+  margin-bottom:12px;
+}
+.couple-name{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(1.7rem,4vw,2.3rem);
+  color:var(--charcoal);margin-bottom:10px;letter-spacing:-.5px;
+}
+.couple-parents{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+  font-size:1rem;color:var(--text-muted);line-height:1.8;
+}
+.couple-sep{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;padding-top:96px;
+}
+.couple-sep-amp{font-family:'Great Vibes',cursive;font-size:4rem;color:var(--rose-dk);line-height:1}
+.couple-sep-line{width:1px;height:50px;background:linear-gradient(to bottom,transparent,rgba(184,132,90,.3),transparent)}
+
+/* ═══════════════════════════
+   LOVE STORY
+═══════════════════════════ */
+.story-band{
+  background:linear-gradient(180deg,#fff8fa 0%,#fff2f5 50%,#fdedf1 100%);
+  padding:90px 24px;
+  position:relative;overflow:hidden;
+}
+.story-band::before{
+  content:'♡';position:absolute;right:4%;top:50%;transform:translateY(-50%);
+  font-size:30vw;opacity:.035;color:var(--rose-dk);pointer-events:none;line-height:1;
+}
+.story-inner{max-width:840px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.story-list{margin-top:56px;display:flex;flex-direction:column;gap:20px;text-align:left}
+.tl-item{
+  display:grid;grid-template-columns:72px 1fr;gap:20px;align-items:start;
+  background:var(--white);border:1px solid rgba(184,132,90,.14);
+  padding:28px 32px 28px 28px;
+  position:relative;overflow:hidden;
+  transition:transform .4s,box-shadow .4s;
+  box-shadow:0 2px 16px rgba(160,80,110,.07);
+}
+@media(max-width:480px){
+  .tl-item{grid-template-columns:1fr;padding:24px 20px}
+  .tl-num{font-size:3rem!important}
+}
+.tl-item::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom,var(--petal),var(--rose),var(--petal));
+}
+.tl-item:hover{transform:translateX(5px);box-shadow:0 8px 36px rgba(160,80,110,.14)}
+.tl-num{
+  font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:700;
+  color:var(--blush-deep);
+  line-height:.9;letter-spacing:-2px;
+  -webkit-text-stroke:1px rgba(184,132,90,.22);
+  user-select:none;
+}
+.tl-year{
+  display:inline-block;background:var(--blush);border:1px solid rgba(184,132,90,.25);
+  padding:4px 14px;border-radius:100px;
+  font-family:'Jost';font-size:.65rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--rose-dk);
+  margin-bottom:10px;
+}
+.tl-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--charcoal);margin-bottom:7px;letter-spacing:-.2px}
+.tl-desc{font-size:.9rem;font-weight:400;color:var(--text-body);line-height:1.8}
+
+/* ═══════════════════════════
+   EVENTS
+═══════════════════════════ */
+.events-band{
+  background:linear-gradient(180deg,#2a1820 0%,#231318 60%,#1e1015 100%);
+  padding:90px 24px;
+  position:relative;overflow:hidden;
+}
+.events-band::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 55% at 50% 0%,rgba(242,200,212,.08) 0%,transparent 55%),
+    radial-gradient(ellipse 55% 40% at 100% 100%,rgba(184,132,90,.05) 0%,transparent 55%);
+}
+.events-inner{max-width:1040px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:3px;margin-top:52px}
+@media(max-width:600px){.events-grid{gap:12px}}
+.ev-item{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  padding:44px 28px;text-align:center;position:relative;overflow:hidden;
+  transition:background .35s,transform .35s;
+}
+@media(max-width:600px){.ev-item{padding:36px 24px}}
+.ev-item::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(242,200,212,.07),rgba(184,132,90,.05));
+  opacity:0;transition:opacity .4s;
+}
+.ev-item:hover::before{opacity:1}
+.ev-item:hover{background:rgba(255,255,255,.08);transform:translateY(-3px)}
+.ev-num{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:5rem;color:rgba(242,200,212,.1);
+  position:absolute;top:14px;right:20px;line-height:1;pointer-events:none;
+  transition:color .4s;
+}
+.ev-item:hover .ev-num{color:rgba(242,200,212,.2)}
+.ev-icon{
+  width:52px;height:52px;border-radius:50%;
+  background:rgba(242,200,212,.1);border:1px solid rgba(242,200,212,.2);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;transition:transform .35s,background .35s;
+}
+.ev-item:hover .ev-icon{transform:scale(1.1) rotate(5deg);background:rgba(242,200,212,.18)}
+.ev-icon svg{width:22px;height:22px;stroke:var(--blush);fill:none;stroke-width:1.5;stroke-linecap:round}
+.ev-tag{
+  font-family:'Jost';font-size:.65rem;font-weight:600;letter-spacing:5px;
+  text-transform:uppercase;color:var(--rose);display:block;margin-bottom:12px;
+}
+.ev-title{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:1.7rem;color:var(--white);margin-bottom:18px;letter-spacing:-.3px;
+}
+.ev-detail{
+  font-size:.88rem;font-weight:400;
+  color:rgba(255,255,255,.6);line-height:2;
+}
+.ev-detail strong{color:rgba(255,255,255,.88);font-weight:500}
+
+/* ═══════════════════════════
+   COUNTDOWN
+═══════════════════════════ */
+.countdown-band{
+  background:linear-gradient(180deg,#fef4f7 0%,#fff8fa 50%,#fffdf9 100%);
+  padding:80px 24px;text-align:center;position:relative;overflow:hidden;
+}
+.countdown-inner{position:relative;z-index:1;max-width:800px;margin:0 auto}
+.cd-row{display:flex;justify-content:center;gap:clamp(8px,3vw,28px);margin-top:50px;flex-wrap:wrap}
+.cd-box{
+  text-align:center;min-width:100px;
+  background:var(--white);
+  border:1px solid rgba(184,132,90,.22);
+  padding:26px 16px 20px;
+  box-shadow:0 4px 20px rgba(160,80,110,.1);
+  position:relative;overflow:hidden;
+  transition:transform .3s,box-shadow .3s;
+}
+@media(max-width:380px){.cd-box{min-width:72px;padding:20px 12px 16px}}
+.cd-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--petal),var(--rose-dk),var(--petal));
+}
+.cd-box:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(160,80,110,.2)}
+.cd-num{
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:clamp(2.5rem,7vw,4.2rem);
+  color:var(--charcoal);line-height:1;display:block;
+}
+.cd-num.flip{animation:num-pop .3s ease}
+@keyframes num-pop{0%{transform:scale(.85);opacity:.3}100%{transform:scale(1);opacity:1}}
+.cd-unit{
+  font-family:'Jost';font-size:.65rem;font-weight:500;letter-spacing:4px;
+  text-transform:uppercase;color:var(--text-muted);display:block;margin-top:8px;
+}
+.cd-colon{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(2rem,5vw,3.5rem);color:var(--rose);
+  align-self:center;margin-top:-12px;
+  animation:colon-b 1s step-end infinite;
+}
+@keyframes colon-b{0%,100%{opacity:1}50%{opacity:.15}}
+
+/* ═══════════════════════════
+   LOCATION
+═══════════════════════════ */
+.location-band{
+  background:linear-gradient(180deg,#fffdf9 0%,#ffffff 50%,#fffbfd 100%);
+  padding:90px 24px;position:relative;overflow:hidden;
+}
+.location-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 55% 45% at 85% 55%,rgba(252,238,242,.8) 0%,transparent 60%);
+}
+.location-inner{max-width:980px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:50px}
+@media(max-width:720px){.loc-grid{grid-template-columns:1fr}}
+.loc-map-wrap{
+  overflow:hidden;height:320px;position:relative;
+  border:1px solid rgba(184,132,90,.2);
+  box-shadow:0 8px 36px rgba(160,80,110,.12);
+}
+.loc-map-wrap iframe{width:100%;height:100%;border:0;display:block;filter:saturate(.5) hue-rotate(300deg) brightness(1.05)}
+.loc-info{
+  background:linear-gradient(135deg,var(--blush-pale),var(--blush-light));
+  border:1px solid rgba(184,132,90,.2);
+  padding:36px 32px;text-align:left;
+  display:flex;flex-direction:column;justify-content:center;gap:16px;
+}
+.loc-venue-name{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:1.65rem;color:var(--charcoal);letter-spacing:-.3px;line-height:1.2;
+}
+.loc-address{
+  font-size:.9rem;font-weight:400;
+  color:var(--text-body);line-height:2;
+}
+.loc-tag-row{display:flex;flex-direction:column;gap:8px}
+.loc-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--white);border:1px solid rgba(184,132,90,.25);
+  padding:7px 16px;border-radius:100px;
+  font-family:'Jost';font-size:.65rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--rose-dk);
+  width:fit-content;
+}
+.loc-tag-dot{width:4px;height:4px;border-radius:50%;background:var(--rose-dk);flex-shrink:0}
+.loc-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:13px 28px;border-radius:100px;
+  border:1.5px solid var(--rose-dk);background:transparent;color:var(--rose-dk);
+  font-family:'Jost';font-size:.68rem;font-weight:500;letter-spacing:4px;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;
+  transition:background .3s,color .3s,transform .2s,box-shadow .3s;width:fit-content;
+  -webkit-tap-highlight-color:transparent;
+}
+.loc-btn:hover{background:var(--rose-dk);color:white;transform:translateY(-2px);box-shadow:0 8px 24px rgba(160,80,110,.3)}
+.loc-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+
+/* ═══════════════════════════
+   GALLERY
+═══════════════════════════ */
+.gallery-band{
+  background:linear-gradient(180deg,#fef4f7 0%,#fdedf2 50%,#fbe8ed 100%);
+  padding:90px 24px;position:relative;
+}
+.gallery-inner{max-width:1120px;margin:0 auto;text-align:center}
+.gi-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:repeat(2,230px);
+  gap:8px;margin-top:48px;
+}
+@media(max-width:680px){
+  .gi-grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,170px)}
+  .gi:first-child{grid-row:1/2;grid-column:1/3}
+}
+.gi{overflow:hidden;position:relative;cursor:pointer}
+.gi:first-child{grid-row:1/3}
+@media(max-width:680px){.gi:first-child{grid-row:1/2}}
+.gi img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .7s cubic-bezier(.25,.46,.45,.94),filter .7s;
+  filter:saturate(.88) brightness(.95);
+}
+.gi:hover img{transform:scale(1.07);filter:saturate(1.1) brightness(1.03)}
+.gi-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(154,48,88,.45) 0%,transparent 60%);
+  opacity:0;transition:opacity .5s;
+}
+.gi:hover .gi-ov{opacity:1}
+.gi-label{
+  position:absolute;bottom:14px;left:14px;
+  font-family:'Jost';font-size:.65rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;
+  color:white;background:rgba(154,48,88,.72);backdrop-filter:blur(4px);
+  padding:5px 13px;border-radius:100px;
+  opacity:0;transform:translateY(7px);transition:opacity .4s,transform .4s;
+}
+.gi:hover .gi-label{opacity:1;transform:none}
+
+/* ═══════════════════════════
+   RSVP
+═══════════════════════════ */
+.rsvp-band{
+  background:linear-gradient(180deg,#fffbfd 0%,#ffffff 40%,#fffdf9 100%);
+  padding:90px 24px;position:relative;overflow:hidden;
+}
+.rsvp-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 65% 55% at 15% 65%,rgba(252,238,242,.7) 0%,transparent 60%);
+}
+.rsvp-inner{max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.rsvp-form{margin-top:44px;display:flex;flex-direction:column;gap:18px;text-align:left}
+.fg{display:flex;flex-direction:column;gap:8px}
+.fg label{
+  font-family:'Jost';font-size:.68rem;font-weight:600;letter-spacing:4px;
+  text-transform:uppercase;color:var(--text-body);
+}
+.fg input,.fg select,.fg textarea{
+  background:var(--blush-pale);
+  border:1px solid rgba(184,132,90,.22);border-bottom:2px solid rgba(184,132,90,.35);
+  color:var(--charcoal);padding:15px 18px;
+  font-family:'Jost';font-size:.95rem;font-weight:400;outline:none;
+  transition:border-color .3s,background .3s,box-shadow .3s;
+  -webkit-appearance:none;border-radius:0;
+}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--text-light);font-style:italic}
+.fg input:focus,.fg select:focus,.fg textarea:focus{
+  border-color:var(--rose-dk);background:var(--blush-light);
+  box-shadow:0 4px 16px rgba(160,80,110,.1);
+}
+.fg select{cursor:pointer}
+.fg select option{background:var(--cream);color:var(--charcoal)}
+.fg textarea{min-height:115px;resize:vertical}
+.rsvp-btn{
+  margin-top:8px;padding:18px;border-radius:100px;
+  background:linear-gradient(135deg,var(--rose-dk),var(--mauve));
+  border:none;color:white;
+  font-family:'Jost';font-size:.72rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;
+  cursor:pointer;position:relative;overflow:hidden;
+  box-shadow:0 8px 28px rgba(160,80,110,.38);
+  transition:box-shadow .3s,transform .2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.rsvp-btn:hover{box-shadow:0 14px 40px rgba(160,80,110,.52);transform:translateY(-2px)}
+.rsvp-btn:active{transform:scale(.97)}
+.rsvp-ok{display:none;text-align:center;padding:56px 0}
+.rsvp-ok-heart{font-size:3.5rem;display:block;margin-bottom:20px;animation:heart-beat 1.2s ease infinite}
+@keyframes heart-beat{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+.rsvp-ok h3{
+  font-family:'Great Vibes',cursive;font-size:3.2rem;color:var(--rose-deep);margin-bottom:14px;
+}
+.rsvp-ok p{
+  color:var(--text-body);font-size:1rem;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+}
+
+/* ═══════════════════════════
+   WISHES
+═══════════════════════════ */
+.wishes-band{
+  background:linear-gradient(180deg,#fef6f8 0%,#fff2f5 50%,#feecf1 100%);
+  padding:90px 24px;
+}
+.wishes-inner{max-width:1020px;margin:0 auto;text-align:center}
+.wishes-count{
+  font-family:'Jost';font-size:.7rem;font-weight:500;letter-spacing:4px;
+  text-transform:uppercase;color:var(--text-muted);margin-bottom:30px;display:none;
+}
+.wishes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;margin-top:36px}
+.w-card{
+  background:var(--white);border:1px solid rgba(184,132,90,.14);
+  padding:30px 26px;text-align:left;
+  box-shadow:0 2px 18px rgba(160,80,110,.07);
+  transition:transform .35s,box-shadow .35s;position:relative;
+}
+.w-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--petal),var(--rose-dk),var(--petal));
+}
+.w-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(160,80,110,.14)}
+.w-card.new-card{border-color:var(--rose-dk);animation:card-glow .8s ease}
+@keyframes card-glow{0%,100%{box-shadow:0 0 0 0 rgba(192,80,112,0)}50%{box-shadow:0 0 0 5px rgba(192,80,112,.18)}}
+.w-qm{font-family:'Great Vibes',cursive;font-size:3.2rem;line-height:.9;color:var(--rose);opacity:.5;margin-bottom:10px}
+.w-msg{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+  font-size:1.08rem;color:var(--text-body);line-height:1.85;margin-bottom:18px;
+}
+.w-from{
+  font-family:'Jost';font-size:.7rem;font-weight:500;letter-spacing:2px;
+  color:var(--charcoal);display:flex;align-items:center;justify-content:space-between;gap:8px;
+  flex-wrap:wrap;
+}
+.w-att{
+  font-size:.62rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--rose-dk);background:var(--blush);border:1px solid rgba(184,132,90,.2);
+  padding:3px 10px;white-space:nowrap;flex-shrink:0;
+}
+.w-date{font-size:.72rem;font-weight:400;color:var(--text-light);margin-top:7px;font-style:italic}
+.w-empty{text-align:center;padding:60px 24px;grid-column:1/-1}
+.w-empty-icon{width:68px;height:68px;margin:0 auto 20px;border:1px solid rgba(184,132,90,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--white)}
+.w-empty-icon svg{width:28px;height:28px;stroke:var(--text-muted);fill:none}
+.w-empty p{color:var(--text-body);margin-bottom:8px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.08rem}
+.w-empty span{font-family:'Jost';font-size:.68rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted)}
+
+/* ═══════════════════════════
+   AMPLOP
+═══════════════════════════ */
+.amp-band{
+  background:linear-gradient(180deg,#fffbfd 0%,#fffdf9 50%,#fffdf9 100%);
+  padding:90px 24px;position:relative;overflow:hidden;
+}
+.amp-band::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 75% 55% at 85% 50%,rgba(252,238,242,.6) 0%,transparent 60%);
+}
+.amp-inner{max-width:760px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.amp-desc{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+  font-size:1.15rem;color:var(--text-body);line-height:1.9;max-width:480px;margin:0 auto 44px;
+}
+
+.env-wrap{margin:0 auto 48px;width:240px;cursor:pointer}
+.env-body{
+  width:240px;height:155px;
+  background:linear-gradient(160deg,var(--blush-deep),var(--blush));
+  border:1px solid rgba(184,132,90,.32);
+  position:relative;
+  box-shadow:0 16px 50px rgba(160,80,110,.22);
+  animation:env-sway 5s ease-in-out infinite;
+  transition:transform .4s;
+}
+.env-wrap:hover .env-body{transform:scale(1.04)}
+@keyframes env-sway{0%,100%{transform:translateY(0) rotate(-.5deg)}50%{transform:translateY(-10px) rotate(.5deg)}}
+.env-flap{position:absolute;top:-1px;left:-1px;right:-1px;height:77px;clip-path:polygon(0 0,50% 66%,100% 0);background:linear-gradient(160deg,var(--blush-light),var(--blush-deep));border:1px solid rgba(184,132,90,.2)}
+.env-fold-l{position:absolute;bottom:-1px;left:-1px;width:0;height:0;border-bottom:77px solid var(--blush);border-right:120px solid transparent}
+.env-fold-r{position:absolute;bottom:-1px;right:-1px;width:0;height:0;border-bottom:77px solid var(--blush);border-left:120px solid transparent}
+.env-seal{
+  position:absolute;bottom:60px;left:50%;transform:translateX(-50%);
+  width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,.65);border:1px solid rgba(184,132,90,.4);
+  display:flex;align-items:center;justify-content:center;
+  animation:seal-pulse 2.5s ease-in-out infinite;
+}
+@keyframes seal-pulse{0%,100%{box-shadow:0 0 0 0 rgba(184,132,90,.3)}50%{box-shadow:0 0 0 8px rgba(184,132,90,.1)}}
+.env-seal-icon{font-size:1.3rem;line-height:1}
+
+.bank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.bank-card{
+  background:var(--white);border:1px solid rgba(184,132,90,.16);
+  padding:32px 26px;text-align:center;
+  box-shadow:0 4px 22px rgba(160,80,110,.08);
+  position:relative;overflow:hidden;
+  transition:transform .35s,box-shadow .35s;
+}
+.bank-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--petal),var(--rose-dk),var(--petal))}
+.bank-card:hover{transform:translateY(-5px);box-shadow:0 16px 46px rgba(160,80,110,.18)}
+.bank-badge{width:50px;height:50px;margin:0 auto 16px;border-radius:50%;background:var(--blush);border:1px solid rgba(184,132,90,.2);display:flex;align-items:center;justify-content:center}
+.bank-badge svg{width:20px;height:20px;stroke:var(--rose-dk);fill:none;stroke-width:1.5;stroke-linecap:round}
+.bank-name{font-family:'Jost';font-size:.65rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.bank-num{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:1.65rem;color:var(--charcoal);letter-spacing:3px;margin-bottom:6px;
+}
+.bank-own{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+  font-size:1rem;color:var(--text-muted);margin-bottom:18px;
+}
+.btn-copy{
+  display:inline-flex;align-items:center;gap:7px;padding:10px 24px;border-radius:100px;
+  border:1.5px solid rgba(184,132,90,.4);background:transparent;color:var(--rose-dk);
+  font-family:'Jost';font-size:.65rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;
+  cursor:pointer;transition:background .3s,color .3s;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn-copy:hover{background:var(--rose-dk);color:white}
+.btn-copy.done{border-color:var(--gold);color:var(--gold)}
+.amp-note{
+  margin-top:32px;font-size:.9rem;color:var(--text-body);
+  line-height:1.9;font-family:'Cormorant Garamond',serif;font-style:italic;
+}
+
+/* ═══════════════════════════
+   CLOSING
+═══════════════════════════ */
+.closing{
+  min-height:75vh;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  padding:80px 24px;overflow:hidden;text-align:center;
+  background:linear-gradient(180deg,#fef2f5 0%,#f8dde5 35%,#f2c8d4 70%,#edbbca 100%);
+}
+.closing-wm{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  font-size:clamp(8rem,25vw,20rem);color:rgba(192,80,112,.07);
+  pointer-events:none;letter-spacing:-5px;line-height:1;font-style:italic;
+}
+.closing-inner{position:relative;z-index:2;max-width:620px}
+.closing-text{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+  font-size:clamp(1.05rem,2.5vw,1.3rem);color:var(--text-body);
+  line-height:2;margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;
+}
+.closing-names{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(4.5rem,13vw,8.5rem);color:var(--charcoal);
+  line-height:1;margin-bottom:10px;
+  text-shadow:0 4px 24px rgba(154,48,88,.16);
+}
+.closing-date{
+  font-family:'Jost';font-size:.72rem;font-weight:600;letter-spacing:8px;
+  color:var(--rose-dk);margin-bottom:48px;text-transform:uppercase;
+}
+.closing-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.c-act{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 32px;border-radius:100px;
+  border:1.5px solid rgba(154,48,88,.4);
+  background:transparent;color:var(--rose-deep);
+  font-family:'Jost';font-size:.68rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;
+  cursor:pointer;
+  transition:background .35s,color .35s,transform .25s,box-shadow .35s;
+  -webkit-tap-highlight-color:transparent;
+}
+.c-act:hover{background:var(--rose-deep);color:white;transform:translateY(-3px);box-shadow:0 10px 32px rgba(154,48,88,.3)}
+.c-act:active{transform:scale(.97)}
+.c-act.primary{background:var(--rose-deep);border-color:var(--rose-deep);color:white;box-shadow:0 8px 28px rgba(154,48,88,.38)}
+.c-act.primary:hover{background:var(--rose-dk);box-shadow:0 14px 40px rgba(154,48,88,.5)}
+.c-act svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ═══════════════════════════
+   FOOTER
+═══════════════════════════ */
+footer{background:linear-gradient(180deg,#2a1820 0%,#1e1015 100%);position:relative;overflow:hidden;padding:0}
+.footer-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 110%,rgba(242,200,212,.09) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 50% at 10% 50%,rgba(184,132,90,.05) 0%,transparent 55%);
+}
+.footer-wave-top{line-height:0;overflow:hidden;position:relative;z-index:1}
+.footer-wave-top svg{display:block;width:100%}
+.footer-inner{position:relative;z-index:2;max-width:840px;margin:0 auto;padding:60px 28px 44px;text-align:center}
+.footer-monogram{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:78px;height:78px;border-radius:50%;
+  border:1px solid rgba(242,200,212,.2);
+  background:radial-gradient(circle,rgba(242,200,212,.1),rgba(42,24,32,.9) 70%);
+  margin:0 auto 26px;
+  box-shadow:0 0 36px rgba(242,200,212,.1);
+}
+.footer-monogram-txt{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--blush);letter-spacing:2px}
+.footer-names{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(1.6rem,4vw,2.4rem);color:var(--blush-light);letter-spacing:.5px;margin-bottom:6px;
+}
+.footer-names span{color:var(--rose);font-style:italic}
+.footer-event-row{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin:16px 0 28px}
+.footer-event-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(242,200,212,.12);background:rgba(242,200,212,.05);
+  padding:8px 18px;border-radius:100px;
+  font-family:'Jost';font-size:.65rem;font-weight:400;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(242,200,212,.55);
+}
+.footer-event-pill svg{width:11px;height:11px;stroke:var(--rose);fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+.footer-sep{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 auto 26px;max-width:300px}
+.footer-sep::before,.footer-sep::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(242,200,212,.15))}
+.footer-sep::after{background:linear-gradient(90deg,rgba(242,200,212,.15),transparent)}
+.footer-sep-diamond{width:5px;height:5px;border:1px solid rgba(242,200,212,.3);transform:rotate(45deg);flex-shrink:0;opacity:.6}
+.footer-verse{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+  font-size:1rem;color:rgba(242,200,212,.4);line-height:1.85;max-width:440px;margin:0 auto 34px;
+}
+.footer-credit{padding:16px 28px;border-top:1px solid rgba(242,200,212,.07);display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;position:relative;z-index:2}
+.footer-credit p{font-family:'Jost';font-size:.6rem;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:rgba(242,200,212,.25)}
+.footer-credit span{color:var(--rose);opacity:.7}
+
+/* ═══════════════════════════
+   TOAST
+═══════════════════════════ */
+#toast{
+  position:fixed;bottom:96px;left:50%;
+  transform:translateX(-50%) translateY(16px);
+  background:rgba(42,24,32,.95);border:1px solid rgba(184,132,90,.3);
+  color:var(--cream);padding:13px 28px;
+  font-family:'Jost';font-size:.68rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;
+  white-space:nowrap;opacity:0;pointer-events:none;z-index:9100;
+  transition:opacity .35s,transform .35s;backdrop-filter:blur(12px);
+  border-radius:100px;
+}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ═══════════════════════════
+   SPARKLE
+═══════════════════════════ */
+.sparkle{
+  position:fixed;pointer-events:none;z-index:9999;
+  animation:spark .65s ease forwards;
+}
+@keyframes spark{
+  0%{opacity:1;transform:scale(0)}
+  60%{opacity:1;transform:scale(1.3)}
+  100%{opacity:0;transform:scale(.2) translateY(-18px)}
+}
+
+/* ═══════════════════════════
+   MOBILE NAV HINT
+═══════════════════════════ */
+.mobile-scroll-fab{
+  display:none;
+  position:fixed;bottom:28px;left:28px;z-index:8400;
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.85);
+  border:1px solid rgba(184,132,90,.25);
+  backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(160,80,110,.15);
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+@media(max-width:768px){.mobile-scroll-fab{display:flex}}
+.mobile-scroll-fab svg{width:16px;height:16px;stroke:var(--rose-dk);fill:none;stroke-width:2;stroke-linecap:round}
+
+/* Touch improvements */
+@media(max-width:768px){
+  .tl-item:hover{transform:none}
+  .ev-item:hover{transform:none}
+  .gi:hover img{transform:none;filter:saturate(.88) brightness(.95)}
+  .gi:hover .gi-ov{opacity:0}
+  .gi:hover .gi-label{opacity:0}
+  .cd-box:hover{transform:none}
+  .bank-card:hover{transform:none}
+  .w-card:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<canvas id="bloom-canvas"></canvas>
+
+<!-- Music FAB -->
+<div class="mring mr1"></div>
+<div class="mring mr2"></div>
+<button id="mfab" title="Musik">
+  <svg id="ico-play" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+  <svg id="ico-pause" viewBox="0 0 24 24" style="display:none"><line x1="6" y1="4" x2="6" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/></svg>
+</button>
+<audio id="bgm" loop preload="none">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"/>
+</audio>
+
+<!-- Mobile scroll to top -->
+<button class="mobile-scroll-fab" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Ke atas">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- ═══════ VEIL ═══════ -->
+<div id="veil">
+  <div class="veil-bg"></div>
+  <div class="veil-diamond vd1"></div>
+  <div class="veil-diamond vd2"></div>
+  <div class="veil-diamond vd3"></div>
+  <div class="veil-content">
+    <div class="veil-monogram"><span class="veil-mono-txt">A&R</span></div>
+    <span class="veil-tag">Wedding Invitation</span>
+    <div class="veil-name1">Amara</div>
+    <div class="veil-amp">&amp;</div>
+    <div class="veil-name2">Rayhan</div>
+    <div class="veil-divider"><span>21 Juni 2026</span></div>
+    <p class="veil-date">Minggu yang Penuh Cinta</p>
+    <p class="veil-venue">The Ritz-Carlton Pacific Place · Jakarta</p>
+    <button class="veil-btn" id="open-btn">
+      <svg class="veil-btn-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="none" fill="currentColor"/></svg>
+      <span>Buka Undangan</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══════ SITE ═══════ -->
+<div id="site">
+
+  <!-- 1. HERO -->
+  <section class="hero">
+    <div class="hero-watermark">🌸</div>
+    <div class="hero-stripe hs-top"></div>
+    <div class="hero-stripe hs-bot"></div>
+    <div class="hero-body">
+      <div class="hero-left">
+        <div class="h-pretag">Undangan Pernikahan</div>
+        <div class="h-names-wrap">
+          <span class="h-name bride">Amara</span>
+          <span class="h-and">&amp;</span>
+          <span class="h-name groom">Rayhan</span>
+        </div>
+        <div class="h-info-row">
+          <p class="h-info-date">Minggu, 21 Juni 2026</p>
+          <div class="h-info-sep"></div>
+          <p class="h-info-venue">The Ritz-Carlton<br/>Pacific Place, Jakarta</p>
+        </div>
+        <button class="h-cta" onclick="document.querySelector('.bismillah-band').scrollIntoView({behavior:'smooth'})">
+          <span class="h-cta-dot"></span>
+          Lihat Detail
+        </button>
+      </div>
+      <div class="hero-right">
+        <div class="hero-date-display">
+          <div class="h-day-big" data-num="21">21</div>
+          <div class="h-month-year">Juni · 2026</div>
+          <div class="h-scroll-hint">Scroll</div>
+        </div>
+      </div>
+    </div>
+    <p class="hero-bottom-deco">Dua hati, satu janji, selamanya bersama</p>
+  </section>
+
+  <!-- wave: hero(#fceef2) → bismillah(#fceef2→white) -->
+  <div class="wave-sep" style="background:#fceef2;margin-top:-2px">
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="none" height="56">
+      <path d="M0,28 C240,56 480,0 720,32 C960,56 1200,8 1440,28 L1440,56 L0,56 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+  <!-- 2. BISMILLAH -->
+  <div class="bismillah-band">
+    <div class="bism-deco bd-tl">🌹</div>
+    <div class="bism-deco bd-tr">🌹</div>
+    <div class="bism-deco bd-bl">🌹</div>
+    <div class="bism-deco bd-br">🌹</div>
+    <div class="bismillah-inner">
+      <p class="bismillah-arabic rv">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+      <div class="bism-line rv d1"><div class="bism-line-gem"></div></div>
+      <p class="bismillah-text rv d1">"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."</p>
+      <p class="bismillah-ref rv d2">Q.S. AR-RUM : 21</p>
+      <div class="guest-card rv d3" id="stamp-box">
+        <span class="guest-for">Kepada Yth.</span>
+        <span class="guest-name" id="stamp-name">Tamu Undangan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave: bismillah(white) → quote(blush) -->
+  <div class="wave-sep" style="background:#ffffff;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+      <path d="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" fill="#fdf0f4"/>
+    </svg>
+  </div>
+
+  <!-- 3. QUOTE -->
+  <div class="quote-band">
+    <div class="quote-deco-l">"</div>
+    <div class="quote-deco-r">"</div>
+    <div class="quote-inner">
+      <p class="q-text rv">"Cinta bukan sekadar perasaan, melainkan sebuah komitmen untuk berjalan bersama — menapaki setiap ombak kehidupan dengan tangan yang saling menggenggam."</p>
+      <p class="q-source rv d1">Romantic Bloom &nbsp;·&nbsp; Amara &amp; Rayhan</p>
+    </div>
+  </div>
+
+  <!-- wave: quote(#f5cdd8) → couple(#fef7f9) -->
+  <div class="wave-sep" style="background:#f5cdd8;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+      <path d="M0,30 C360,0 720,60 1080,20 C1200,8 1340,40 1440,30 L1440,60 L0,60 Z" fill="#fef7f9"/>
+    </svg>
+  </div>
+
+  <!-- 4. COUPLE -->
+  <div class="couple-band">
+    <div class="couple-inner">
+      <div class="sec-tag rv"><span class="sec-tag-dot"></span>Mempelai</div>
+      <h2 class="sec-hdg rv d1">Dua Jiwa, <em>Satu Tujuan</em></h2>
+      <div class="ornament rv d2"><span class="o-l"></span><div class="o-mid"><div class="o-ds"></div><div class="o-d"></div><div class="o-ds"></div></div><span class="o-r"></span></div>
+      <div class="couple-grid">
+        <div class="couple-card rvl">
+          <div class="couple-photo-frame">
+            <div class="couple-photo-outer">
+              <div class="couple-photo-inner">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=320&auto=format&fit=crop&q=80" alt="Amara Zahira"/>
+              </div>
+            </div>
+            <div class="photo-petal" style="--d:8s;--del:0s">🌸</div>
+            <div class="photo-petal" style="--d:11s;--del:-3s">🌷</div>
+            <div class="photo-petal" style="--d:9s;--del:-6s">🌸</div>
+          </div>
+          <div class="couple-card-info">
+            <span class="couple-role">Mempelai Wanita</span>
+            <p class="couple-name">Amara Zahira</p>
+            <p class="couple-parents">Putri pertama dari<br/>Bapak H. Fauzan Hakim<br/>&amp; Ibu Hj. Nurul Aisyah</p>
+          </div>
+        </div>
+        <div class="couple-sep">
+          <div class="couple-sep-line"></div>
+          <span class="couple-sep-amp">&amp;</span>
+          <div class="couple-sep-line"></div>
+        </div>
+        <div class="couple-card rvr">
+          <div class="couple-photo-frame">
+            <div class="couple-photo-outer">
+              <div class="couple-photo-inner">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=320&auto=format&fit=crop&q=80" alt="Rayhan Pratama"/>
+              </div>
+            </div>
+            <div class="photo-petal" style="--d:10s;--del:-2s">🌸</div>
+            <div class="photo-petal" style="--d:8s;--del:-5s">🌹</div>
+            <div class="photo-petal" style="--d:12s;--del:-8s">🌸</div>
+          </div>
+          <div class="couple-card-info">
+            <span class="couple-role">Mempelai Pria</span>
+            <p class="couple-name">Rayhan Pratama</p>
+            <p class="couple-parents">Putra kedua dari<br/>Bapak Ir. Budi Santoso<br/>&amp; Ibu dr. Ratna Dewi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave: couple(#fffdf9) → story(#fff8fa) -->
+  <div class="wave-sep" style="background:#fffdf9;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 52" preserveAspectRatio="none" height="52">
+      <path d="M0,0 C200,52 500,10 800,40 C1000,58 1220,14 1440,36 L1440,52 L0,52 Z" fill="#fff8fa"/>
+    </svg>
+  </div>
+
+  <!-- 5. LOVE STORY -->
+  <div class="story-band">
+    <div class="story-inner">
+      <div class="sec-tag rv"><span class="sec-tag-dot"></span>Kisah Kami</div>
+      <h2 class="sec-hdg rose rv d1">Love <em>Story</em></h2>
+      <div class="ornament rv d2"><span class="o-l"></span><div class="o-mid"><div class="o-ds"></div><div class="o-d"></div><div class="o-ds"></div></div><span class="o-r"></span></div>
+      <div class="story-list">
+        <div class="tl-item rv">
+          <div class="tl-num">01</div>
+          <div class="tl-body">
+            <span class="tl-year">2019</span>
+            <p class="tl-title">Pertemuan Pertama</p>
+            <p class="tl-desc">Sebuah kebetulan yang terasa disengaja — kami bertemu di sebuah seminar seni di Jakarta. Tatapan pertama itu terasa seperti kelopak bunga yang perlahan mekar.</p>
+          </div>
+        </div>
+        <div class="tl-item rv d1">
+          <div class="tl-num">02</div>
+          <div class="tl-body">
+            <span class="tl-year">2020</span>
+            <p class="tl-title">Persahabatan yang Tumbuh</p>
+            <p class="tl-desc">Di antara lockdown dan ketidakpastian, kami menemukan kenyamanan dalam obrolan panjang, tawa kecil, dan kesamaan mimpi yang perlahan terungkap.</p>
+          </div>
+        </div>
+        <div class="tl-item rv d2">
+          <div class="tl-num">03</div>
+          <div class="tl-body">
+            <span class="tl-year">2021</span>
+            <p class="tl-title">Awal yang Resmi</p>
+            <p class="tl-desc">Rayhan datang dengan setangkai bunga dan kata-kata sederhana yang mengubah segalanya. Kami memulai babak baru bersama, penuh warna dan harapan.</p>
+          </div>
+        </div>
+        <div class="tl-item rv d3">
+          <div class="tl-num">04</div>
+          <div class="tl-body">
+            <span class="tl-year">2023</span>
+            <p class="tl-title">Lamaran di Tepi Laut</p>
+            <p class="tl-desc">Di tepi pantai Belitung saat matahari terbenam, Rayhan berlutut dan bertanya satu pertanyaan yang jawabannya sudah Amara tahu sejak lama: Ya.</p>
+          </div>
+        </div>
+        <div class="tl-item rv d4">
+          <div class="tl-num">05</div>
+          <div class="tl-body">
+            <span class="tl-year">2026</span>
+            <p class="tl-title">Menuju Pelabuhan</p>
+            <p class="tl-desc">Kini kami berlayar bersama menuju babak paling indah — pernikahan. Dan kami ingin Anda menjadi bagian dari perjalanan ini.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave: story(#fdedf1) → events(dark) - dramatic dip -->
+  <div class="wave-sep" style="background:#fdedf1;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" height="70">
+      <path d="M0,0 C280,70 560,10 840,50 C1060,76 1260,20 1440,45 L1440,70 L0,70 Z" fill="#2a1820"/>
+    </svg>
+  </div>
+
+  <!-- 6. EVENTS -->
+  <div class="events-band">
+    <div class="events-inner">
+      <div class="sec-tag rv" style="background:rgba(242,200,212,.1);border-color:rgba(242,200,212,.2);color:var(--blush)"><span class="sec-tag-dot" style="background:var(--rose)"></span>Rangkaian Acara</div>
+      <h2 class="sec-hdg light rv d1">Detail <em style="color:var(--rose)">Pernikahan</em></h2>
+      <div class="ornament rv d2"><span class="o-l" style="background:linear-gradient(90deg,transparent,rgba(242,200,212,.3))"></span><div class="o-mid"><div class="o-ds" style="background:rgba(184,132,90,.4)"></div><div class="o-d" style="background:var(--rose)"></div><div class="o-ds" style="background:rgba(184,132,90,.4)"></div></div><span class="o-r" style="background:linear-gradient(90deg,rgba(242,200,212,.3),transparent)"></span></div>
+      <p class="rv d3" style="color:rgba(255,255,255,.5);font-family:'Cormorant Garamond';font-style:italic;font-size:1.1rem;margin-bottom:0">Minggu, 21 Juni 2026 &nbsp;·&nbsp; The Ritz-Carlton Pacific Place, Jakarta</p>
+      <div class="events-grid">
+        <div class="ev-item rv">
+          <div class="ev-num">01</div>
+          <div class="ev-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <span class="ev-tag">Akad Nikah</span>
+          <p class="ev-title">Ijab Kabul</p>
+          <p class="ev-detail"><strong>Minggu, 21 Juni 2026</strong><br/>08.00 — selesai WIB<br/>Chapel Hall, Lantai 3<br/>The Ritz-Carlton Pacific Place</p>
+        </div>
+        <div class="ev-item rv d1">
+          <div class="ev-num">02</div>
+          <div class="ev-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <span class="ev-tag">Resepsi Siang</span>
+          <p class="ev-title">Walimatul Ursy</p>
+          <p class="ev-detail"><strong>Minggu, 21 Juni 2026</strong><br/>11.00 — 14.00 WIB<br/>Grand Ballroom, Lantai 4<br/>The Ritz-Carlton Pacific Place</p>
+        </div>
+        <div class="ev-item rv d2">
+          <div class="ev-num">03</div>
+          <div class="ev-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <span class="ev-tag">Resepsi Malam</span>
+          <p class="ev-title">Dinner Reception</p>
+          <p class="ev-detail"><strong>Minggu, 21 Juni 2026</strong><br/>18.00 — 21.00 WIB<br/>Grand Ballroom, Lantai 4<br/>The Ritz-Carlton Pacific Place</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave: events(dark #1e1015) → countdown(#fef4f7) -->
+  <div class="wave-sep" style="background:#1e1015;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" height="70">
+      <path d="M0,40 C300,0 600,70 900,25 C1100,4 1280,55 1440,35 L1440,70 L0,70 Z" fill="#fef4f7"/>
+    </svg>
+  </div>
+
+  <!-- 7. COUNTDOWN -->
+  <div class="countdown-band">
+    <div class="countdown-inner">
+      <div class="sec-tag rv"><span class="sec-tag-dot"></span>Hitung Mundur</div>
+      <h2 class="sec-hdg rv d1">Menuju Hari <em>Bahagia</em></h2>
+      <div class="ornament rv d2"><span class="o-l"></span><div class="o-mid"><div class="o-ds"></div><div class="o-d"></div><div class="o-ds"></div></div><span class="o-r"></span></div>
+      <div class="cd-row rv d3">
+        <div class="cd-box"><span class="cd-num" id="cd-d">00</span><span class="cd-unit">Hari</span></div>
+        <span class="cd-colon">:</span>
+        <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-unit">Jam</span></div>
+        <span class="cd-colon">:</span>
+        <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-unit">Menit</span></div>
+        <span class="cd-colon">:</span>
+        <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-unit">Detik</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave: countdown(#fffdf9) → location(white) -->
+  <div class="wave-sep" style="background:#fffdf9;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" height="48">
+      <path d="M0,24 C360,48 720,0 1080,30 C1220,40 1340,18 1440,24 L1440,48 L0,48 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+
+  <!-- 8. LOCATION -->
+  <div class="location-band">
+    <div class="location-inner">
+      <div class="sec-tag rv"><span class="sec-tag-dot"></span>Lokasi</div>
+      <h2 class="sec-hdg rv d1">Venue <em>Pernikahan</em></h2>
+      <div class="ornament rv d2"><span class="o-l"></span><div class="o-mid"><div class="o-ds"></div><div class="o-d"></div><div class="o-ds"></div></div><span class="o-r"></span></div>
+      <div class="loc-grid rv d3">
+        <div class="loc-map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3!2d106.8225!3d-6.2243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e7b5f9!2sThe+Ritz-Carlton+Pacific+Place!5e0!3m2!1sid!2sid!4v1" allowfullscreen="" loading="lazy" title="Peta lokasi"></iframe>
+        </div>
+        <div class="loc-info">
+          <p class="loc-venue-name">The Ritz-Carlton Pacific Place</p>
+          <p class="loc-address">Jl. Jend. Sudirman Kav. 52-53<br/>Pacific Place Mall, Lantai 3 &amp; 4<br/>Jakarta Selatan, 12190</p>
+          <div class="loc-tag-row">
+            <span class="loc-tag"><span class="loc-tag-dot"></span>Chapel Hall — Lantai 3 (Akad)</span>
+            <span class="loc-tag"><span class="loc-tag-dot"></span>Grand Ballroom — Lantai 4 (Resepsi)</span>
+          </div>
+          <a class="loc-btn" href="https://maps.google.com/?q=The+Ritz-Carlton+Pacific+Place+Jakarta" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Buka di Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave: location(white) → gallery(#fef4f7) -->
+  <div class="wave-sep" style="background:#ffffff;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" height="54">
+      <path d="M0,0 C400,54 800,8 1200,38 C1300,46 1380,28 1440,36 L1440,54 L0,54 Z" fill="#fef4f7"/>
+    </svg>
+  </div>
+
+  <!-- 9. GALLERY -->
+  <div class="gallery-band">
+    <div class="gallery-inner">
+      <div class="sec-tag rv"><span class="sec-tag-dot"></span>Momen Bersama</div>
+      <h2 class="sec-hdg rv d1">Our <em>Gallery</em></h2>
+      <div class="ornament rv d2"><span class="o-l"></span><div class="o-mid"><div class="o-ds"></div><div class="o-d"></div><div class="o-ds"></div></div><span class="o-r"></span></div>
+      <div class="gi-grid rv d3">
+        <div class="gi"><img src="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=600&auto=format&fit=crop&q=80" alt="Foto bersama"/><div class="gi-ov"></div><div class="gi-label">Bersama</div></div>
+        <div class="gi"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&auto=format&fit=crop&q=80" alt="Foto cinta"/><div class="gi-ov"></div><div class="gi-label">Cinta</div></div>
+        <div class="gi"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=400&auto=format&fit=crop&q=80" alt="Foto bahagia"/><div class="gi-ov"></div><div class="gi-label">Bahagia</div></div>
+        <div class="gi"><img src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400&auto=format&fit=crop&q=80" alt="Kenangan"/><div class="gi-ov"></div><div class="gi-label">Kenangan</div></div>
+        <div class="gi"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400&auto=format&fit=crop&q=80" alt="Selamanya"/><div class="gi-ov"></div><div class="gi-label">Selamanya</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave: gallery(#fbe8ed) → rsvp(white) -->
+  <div class="wave-sep" style="background:#fbe8ed;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="none" height="56">
+      <path d="M0,28 C200,0 500,56 800,22 C1000,4 1220,48 1440,28 L1440,56 L0,56 Z" fill="#fffbfd"/>
+    </svg>
+  </div>
+
+  <!-- 10. RSVP -->
+  <div class="rsvp-band">
+    <div class="rsvp-inner">
+      <div class="sec-tag rv"><span class="sec-tag-dot"></span>Konfirmasi Kehadiran</div>
+      <h2 class="sec-hdg rv d1">RSVP</h2>
+      <div class="ornament rv d2"><span class="o-l"></span><div class="o-mid"><div class="o-ds"></div><div class="o-d"></div><div class="o-ds"></div></div><span class="o-r"></span></div>
+      <p class="rv d3" style="color:var(--text-muted);font-family:'Cormorant Garamond';font-style:italic;font-size:1.1rem;margin-bottom:0">Mohon konfirmasi kehadiran Anda sebelum 14 Juni 2026</p>
+      <div class="rsvp-form" id="rsvp-form">
+        <div class="fg rv"><label>Nama Lengkap</label><input type="text" id="r-name" placeholder="Nama Anda..." autocomplete="name"/></div>
+        <div class="fg rv d1"><label>Nomor WhatsApp</label><input type="tel" id="r-phone" placeholder="+62..." autocomplete="tel"/></div>
+        <div class="fg rv d2"><label>Konfirmasi Kehadiran</label>
+          <select id="r-attend">
+            <option value="">— Pilih —</option>
+            <option value="hadir">Insyaallah Hadir</option>
+            <option value="tidak">Tidak Dapat Hadir</option>
+          </select>
+        </div>
+        <div class="fg rv d2"><label>Sesi Acara</label>
+          <select id="r-sess">
+            <option value="">— Pilih Sesi —</option>
+            <option>Akad Nikah (08.00)</option>
+            <option>Resepsi Siang (11.00)</option>
+            <option>Resepsi Malam (18.00)</option>
+            <option>Semua Sesi</option>
+          </select>
+        </div>
+        <div class="fg rv d3"><label>Ucapan &amp; Doa</label><textarea id="r-msg" placeholder="Tuliskan doa dan ucapan tulus Anda..."></textarea></div>
+        <button class="rsvp-btn rv d3" id="rsvp-submit">Kirim Konfirmasi 💌</button>
+      </div>
+      <div class="rsvp-ok" id="rsvp-ok">
+        <span class="rsvp-ok-heart">💖</span>
+        <h3>Terima Kasih</h3>
+        <p>Kami sangat menantikan kehadiran dan doa restu Anda</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave: rsvp(#fffdf9) → wishes(#fef6f8) -->
+  <div class="wave-sep" style="background:#fffdf9;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 52" preserveAspectRatio="none" height="52">
+      <path d="M0,16 C320,52 720,0 1080,36 C1220,48 1340,20 1440,30 L1440,52 L0,52 Z" fill="#fef6f8"/>
+    </svg>
+  </div>
+
+  <!-- 11. WISHES -->
+  <div class="wishes-band">
+    <div class="wishes-inner">
+      <div class="sec-tag rv"><span class="sec-tag-dot"></span>Pesan &amp; Doa</div>
+      <h2 class="sec-hdg rv d1">Wedding <em>Wishes</em></h2>
+      <div class="ornament rv d2"><span class="o-l"></span><div class="o-mid"><div class="o-ds"></div><div class="o-d"></div><div class="o-ds"></div></div><span class="o-r"></span></div>
+      <p class="wishes-count" id="wishes-count"></p>
+      <div class="wishes-grid" id="wgrid">
+        <div class="w-empty" id="wempty">
+          <div class="w-empty-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <p>Jadilah yang pertama memberikan ucapan</p>
+          <span>Tulis pesan Anda di form RSVP di atas 🌸</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave: wishes(#feecf1) → amplop(#fffbfd) -->
+  <div class="wave-sep" style="background:#feecf1;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 54" preserveAspectRatio="none" height="54">
+      <path d="M0,36 C280,10 640,54 960,20 C1120,6 1300,46 1440,28 L1440,54 L0,54 Z" fill="#fffbfd"/>
+    </svg>
+  </div>
+
+  <!-- 12. AMPLOP -->
+  <div class="amp-band">
+    <div class="amp-inner">
+      <div class="sec-tag rv"><span class="sec-tag-dot"></span>Hadiah Pernikahan</div>
+      <h2 class="sec-hdg rose rv d1">Amplop <em>Digital</em></h2>
+      <div class="ornament rv d2"><span class="o-l"></span><div class="o-mid"><div class="o-ds"></div><div class="o-d"></div><div class="o-ds"></div></div><span class="o-r"></span></div>
+      <p class="amp-desc rv d3">Doa restu Anda adalah hadiah paling berharga.<br/>Bila berkenan, berikut informasi rekening kami.</p>
+      <div class="env-wrap rv">
+        <div class="env-body">
+          <div class="env-flap"></div>
+          <div class="env-fold-l"></div>
+          <div class="env-fold-r"></div>
+          <div class="env-seal"><span class="env-seal-icon">💌</span></div>
+        </div>
+      </div>
+      <div class="bank-grid rv d1">
+        <div class="bank-card">
+          <div class="bank-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+          <p class="bank-name">Bank Central Asia</p>
+          <p class="bank-num">1234 5678 90</p>
+          <p class="bank-own">a.n. Amara Zahira</p>
+          <button class="btn-copy" onclick="copyNum('1234567890',this)">
+            <svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Salin Nomor
+          </button>
+        </div>
+        <div class="bank-card">
+          <div class="bank-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+          <p class="bank-name">Bank Negara Indonesia</p>
+          <p class="bank-num">9876 5432 10</p>
+          <p class="bank-own">a.n. Rayhan Pratama</p>
+          <button class="btn-copy" onclick="copyNum('9876543210',this)">
+            <svg viewBox="0 0 24 24" style="width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Salin Nomor
+          </button>
+        </div>
+      </div>
+      <p class="amp-note rv d2">Konfirmasi transfer via WhatsApp atas nama Amara<br/><span style="color:var(--rose-dk);font-style:normal">+62 813-9876-5432</span></p>
+    </div>
+  </div>
+
+  <!-- wave: amplop(#fffdf9) → closing(#fef2f5) -->
+  <div class="wave-sep" style="background:#fffdf9;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
+      <path d="M0,0 C360,60 720,10 1080,44 C1240,56 1360,24 1440,40 L1440,60 L0,60 Z" fill="#fef2f5"/>
+    </svg>
+  </div>
+
+  <!-- 13. CLOSING -->
+  <div class="closing">
+    <div class="closing-wm">A&amp;R</div>
+    <div class="closing-inner">
+      <div class="sec-tag rv" style="background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.35);color:var(--plum)"><span class="sec-tag-dot" style="background:var(--rose-dk)"></span>Dengan Penuh Cinta</div>
+      <p class="closing-text rv d1">Dengan kerendahan hati dan kebahagiaan yang tak terhingga, kami mengundang Bapak / Ibu / Saudara/i untuk hadir dan memberikan doa restu dalam momen paling sakral dalam hidup kami.</p>
+      <div class="closing-names rv d2">Amara &amp; Rayhan</div>
+      <p class="closing-date rv d2">21 · 06 · 2026</p>
+      <div class="closing-actions rv d3">
+        <button class="c-act primary" onclick="shareWA()">
+          <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          <span>Bagikan via WhatsApp</span>
+        </button>
+        <button class="c-act" onclick="saveCal()">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Simpan Tanggal</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- wave: closing(#edbbca) → footer(dark) -->
+  <div class="wave-sep" style="background:#edbbca;margin-bottom:-2px">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" height="70">
+      <path d="M0,20 C320,70 680,0 1020,45 C1180,60 1320,18 1440,35 L1440,70 L0,70 Z" fill="#2a1820"/>
+    </svg>
+  </div>
+
+  <!-- 14. FOOTER -->
+  <footer>
+    <div class="footer-glow"></div>
+    <div class="footer-inner">
+      <div class="footer-monogram"><span class="footer-monogram-txt">A&R</span></div>
+      <p class="footer-names">Amara <span>&amp;</span> Rayhan</p>
+      <div class="footer-event-row">
+        <span class="footer-event-pill"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Minggu, 21 Juni 2026</span>
+        <span class="footer-event-pill"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>The Ritz-Carlton Pacific Place</span>
+      </div>
+      <div class="footer-sep"><div class="footer-sep-diamond"></div></div>
+      <p class="footer-verse">"Dan Kami jadikan dari air segala sesuatu yang hidup."<br/>— Q.S. Al-Anbiya : 30</p>
+    </div>
+    <div class="footer-credit">
+      <p>Dibuat dengan <span>🌸</span> oleh <span>ThinkWed · Think Edge</span> &nbsp;·&nbsp; 2026</p>
+    </div>
+  </footer>
+
+</div><!-- end #site -->
+
+<div id="toast"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+
+var veil=document.getElementById('veil'),site=document.getElementById('site');
+var openBtn=document.getElementById('open-btn'),bgm=document.getElementById('bgm');
+var icoPlay=document.getElementById('ico-play'),icoPause=document.getElementById('ico-pause');
+var mfab=document.getElementById('mfab'),curEl=document.getElementById('cur'),curRing=document.getElementById('cur-ring');
+var opened=false,playing=false;
+
+/* ── GUEST NAME ── */
+(function(){
+  var p=new URLSearchParams(window.location.search);
+  var g=p.get('to')||p.get('guest')||p.get('nama');
+  if(g){var el=document.getElementById('stamp-name');if(el)el.textContent=decodeURIComponent(g.replace(/\+/g,' '));}
+})();
+
+/* ── CURSOR (desktop only) ── */
+var mx=0,my=0,rx=0,ry=0;
+if(window.innerWidth>768){
+  document.addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    curEl.style.left=mx+'px';curEl.style.top=my+'px';
+  });
+  (function rl(){
+    rx+=(mx-rx)*.11;ry+=(my-ry)*.11;
+    curRing.style.left=rx+'px';curRing.style.top=ry+'px';
+    requestAnimationFrame(rl);
+  })();
+  document.addEventListener('mouseover',function(e){
+    var hot=e.target&&e.target.closest&&e.target.closest('a,button,.gi,.ev-item,.cd-box,.bank-card,.tl-item,.w-card,.couple-card');
+    curEl.classList.toggle('big',!!hot);
+    curRing.style.width=hot?'44px':'30px';curRing.style.height=hot?'44px':'30px';
+    curRing.style.opacity=hot?'.18':'.6';
+  });
+}
+
+/* ── PETAL RAIN ── */
+var pc=document.getElementById('bloom-canvas'),pctx=pc.getContext('2d');
+var petals=[];
+function sizePc(){pc.width=window.innerWidth;pc.height=window.innerHeight;}
+sizePc();window.addEventListener('resize',sizePc);
+
+function Petal(){
+  var colors=['rgba(242,160,180,','rgba(212,112,138,','rgba(245,184,202,','rgba(184,132,90,','rgba(255,170,190,'];
+  this.reset=function(){
+    this.x=Math.random()*pc.width;this.y=-30;
+    this.w=Math.random()*9+4;this.h=Math.random()*6+3;
+    this.op=Math.random()*.45+.12;
+    this.vy=Math.random()*.85+.35;this.vx=(Math.random()-.5)*.45;
+    this.rot=Math.random()*Math.PI*2;this.rsp=(Math.random()-.5)*.045;
+    this.sway=Math.random()*38+10;this.swayS=Math.random()*.014+.004;this.swayO=Math.random()*Math.PI*2;
+    this.col=colors[Math.floor(Math.random()*colors.length)];
+  };
+  this.reset();this.y=Math.random()*pc.height;
+  this.update=function(t){
+    this.y+=this.vy;this.x+=this.vx+Math.sin(t*this.swayS+this.swayO)*.45;
+    this.rot+=this.rsp;if(this.y>pc.height+30)this.reset();
+  };
+  this.draw=function(){
+    pctx.save();pctx.translate(this.x,this.y);pctx.rotate(this.rot);
+    pctx.globalAlpha=this.op;pctx.beginPath();
+    pctx.moveTo(0,-this.h);
+    pctx.bezierCurveTo(this.w,-this.h*.5,this.w,this.h*.5,0,this.h);
+    pctx.bezierCurveTo(-this.w,this.h*.5,-this.w,-this.h*.5,0,-this.h);
+    pctx.fillStyle=this.col+this.op+')';pctx.fill();
+    pctx.restore();
+  };
+}
+var petalCount=window.innerWidth<768?30:50;
+for(var i=0;i<petalCount;i++)petals.push(new Petal());
+var pt=0;
+function animPetals(){pctx.clearRect(0,0,pc.width,pc.height);pt+=.5;petals.forEach(function(p){p.update(pt);p.draw();});requestAnimationFrame(animPetals);}
+animPetals();
+
+/* ── OPEN ── */
+openBtn.addEventListener('click',function(){
+  if(opened)return;opened=true;
+  veil.classList.add('gone');site.style.display='block';
+  pc.classList.add('show');
+  setTimeout(function(){
+    countdownTick();setInterval(countdownTick,1000);
+    setTimeout(initReveal,100);
+    startMusic();loadSeedWishes();
+  },200);
+});
+
+/* ── MUSIC ── */
+function startMusic(){
+  bgm.volume=.25;
+  var p=bgm.play();
+  if(p!==undefined){
+    p.then(function(){setPlaying(true)}).catch(function(){
+      document.addEventListener('click',function onTap(){
+        bgm.play().then(function(){setPlaying(true)}).catch(function(){});
+        document.removeEventListener('click',onTap);
+      });
+    });
+  }
+}
+function setPlaying(v){playing=v;icoPlay.style.display=v?'none':'';icoPause.style.display=v?'':'none';}
+mfab.addEventListener('click',function(){
+  if(playing){bgm.pause();setPlaying(false);}
+  else{bgm.play().then(function(){setPlaying(true)}).catch(function(){});}
+});
+
+/* ── SCROLL REVEAL ── */
+function initReveal(){
+  if(!('IntersectionObserver'in window)){
+    document.querySelectorAll('.rv,.rvl,.rvr,.rvc').forEach(function(el){el.classList.add('on');});
+    return;
+  }
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on');});
+  },{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.rv,.rvl,.rvr,.rvc').forEach(function(el){obs.observe(el);});
+}
+
+/* ── COUNTDOWN ── */
+var TARGET=new Date('2026-06-21T08:00:00+07:00'),prevV={d:null,h:null,m:null,s:null};
+function countdownTick(){
+  var diff=Math.max(0,TARGET-new Date()),pad=function(n){return String(Math.floor(n)).padStart(2,'0');};
+  var vals={d:pad(diff/864e5),h:pad((diff%864e5)/36e5),m:pad((diff%36e5)/6e4),s:pad((diff%6e4)/1e3)};
+  ['d','h','m','s'].forEach(function(k){
+    var el=document.getElementById('cd-'+k);if(!el)return;
+    if(vals[k]!==prevV[k]){el.textContent=vals[k];el.classList.remove('flip');void el.offsetWidth;el.classList.add('flip');}
+    prevV[k]=vals[k];
+  });
+}
+
+/* ── PARALLAX (desktop only) ── */
+if(window.innerWidth>768){
+  window.addEventListener('scroll',function(){
+    var s=window.pageYOffset;
+    var wm=document.querySelector('.hero-watermark');
+    if(wm)wm.style.transform='translateY(calc(-50% + '+s*.07+'px))';
+  });
+}
+
+/* ── SPARKLE on CLICK ── */
+document.addEventListener('click',function(e){
+  if(Math.random()>.45)return;
+  var sparks=['🌸','✿','❀','💮','🌷'];
+  for(var i=0;i<3;i++){
+    var sp=document.createElement('div');sp.className='sparkle';
+    var angle=Math.random()*360,dist=14+Math.random()*32;
+    sp.style.left=(e.clientX+Math.cos(angle*Math.PI/180)*dist-10)+'px';
+    sp.style.top=(e.clientY+Math.sin(angle*Math.PI/180)*dist-10)+'px';
+    sp.style.fontSize=(.9+Math.random()*.8)+'rem';
+    sp.textContent=sparks[Math.floor(Math.random()*sparks.length)];
+    document.body.appendChild(sp);
+    setTimeout(function(){sp.remove();},650);
+  }
+});
+
+/* ── HOVER SPOTLIGHT on ev-item (desktop) ── */
+if(window.innerWidth>768){
+  document.querySelectorAll('.ev-item').forEach(function(el){
+    el.addEventListener('mousemove',function(e){
+      var r=el.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width*100;var y=(e.clientY-r.top)/r.height*100;
+      el.style.background='radial-gradient(circle at '+x+'% '+y+'%, rgba(242,200,212,.1) 0%, rgba(255,255,255,.05) 60%)';
+    });
+    el.addEventListener('mouseleave',function(){el.style.background='';});
+  });
+}
+
+/* ── RSVP ── */
+document.getElementById('rsvp-submit').addEventListener('click',function(){
+  var name=document.getElementById('r-name');
+  var attend=document.getElementById('r-attend');
+  var msg=document.getElementById('r-msg');
+  var sess=document.getElementById('r-sess');
+  if(!name||!name.value.trim()||!attend||!attend.value){
+    alert('Mohon isi nama dan konfirmasi kehadiran Anda');return;
+  }
+  if(msg&&msg.value.trim()){
+    wishes.unshift({
+      name:name.value.trim(),
+      msg:msg.value.trim(),
+      att:attend.value==='hadir'?'Hadir':'Tidak Hadir',
+      sess:sess?sess.value:'',
+      date:new Date().toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'}),
+      isNew:true
+    });
+    renderWishes();
+    setTimeout(function(){if(wishes[0])wishes[0].isNew=false;},3000);
+    setTimeout(function(){var wb=document.querySelector('.wishes-band');if(wb)wb.scrollIntoView({behavior:'smooth'});},1500);
+  }
+  document.getElementById('rsvp-form').style.display='none';
+  document.getElementById('rsvp-ok').style.display='block';
+  showToast('Terima kasih, '+name.value.trim()+'! 🌸');
+});
+
+/* ── WISHES ── */
+var wishes=[];
+function loadSeedWishes(){
+  wishes=[
+    {name:'Rizky & Sari Wijaya',msg:'Selamat menempuh hidup baru Amara dan Rayhan! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah.',att:'Hadir',sess:'Semua Sesi',date:'10 Mei 2026'},
+    {name:'Annisa Ramadhani',msg:'Barakallahu laka wa baraka alaika wa jama\'a bainakuma fi khair. Semoga biduk rumah tangga kalian selalu berlayar dalam ridho Allah.',att:'Hadir',sess:'Akad Nikah (08.00)',date:'12 Mei 2026'},
+    {name:'Tim ThinkEdge Studio',msg:'Selamat bahagia Amara & Rayhan! Seperti bunga yang mekar, semoga cinta kalian selalu indah dan harum.',att:'Hadir',sess:'Resepsi Siang (11.00)',date:'15 Mei 2026'}
+  ];
+  renderWishes();
+}
+function renderWishes(){
+  var grid=document.getElementById('wgrid'),empty=document.getElementById('wempty'),cnt=document.getElementById('wishes-count');
+  if(!grid)return;
+  if(!wishes.length){if(empty)empty.style.display='block';if(cnt)cnt.style.display='none';return;}
+  if(empty)empty.style.display='none';
+  if(cnt){cnt.style.display='block';cnt.textContent=wishes.length+' ucapan telah diterima';}
+  grid.innerHTML='';
+  wishes.forEach(function(w,idx){
+    var c=document.createElement('div');c.className='w-card'+(w.isNew?' new-card':'');
+    c.style.animationDelay=(idx*.08)+'s';
+    c.innerHTML='<div class="w-qm">\u201c</div><p class="w-msg">'+esc(w.msg)+'</p><p class="w-from">'+esc(w.name)+(w.att?'<span class="w-att">'+esc(w.att)+'</span>':'')+'</p><p class="w-date">'+esc(w.date)+'</p>';
+    grid.appendChild(c);
+  });
+}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+/* ── COPY ── */
+window.copyNum=function(num,btn){
+  var orig=btn.innerHTML;
+  navigator.clipboard.writeText(num).then(function(){
+    btn.classList.add('done');btn.innerHTML='✓ Tersalin';
+    showToast('Nomor rekening berhasil disalin 🌸');
+    setTimeout(function(){btn.classList.remove('done');btn.innerHTML=orig;},3000);
+  }).catch(function(){showToast('Nomor: '+num);});
+};
+
+/* ── SHARE & CALENDAR ── */
+window.shareWA=function(){
+  var txt='🌸 *Undangan Pernikahan*\n\n*Amara & Rayhan*\nMinggu, 21 Juni 2026\nThe Ritz-Carlton Pacific Place, Jakarta\n\nDengan penuh cinta kami mengundang kehadiran Anda 🌸\n\n'+location.href;
+  window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+};
+window.saveCal=function(){
+  var ics='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:20260621T080000Z\r\nDTEND:20260621T210000Z\r\nSUMMARY:Pernikahan Amara & Rayhan\r\nDESCRIPTION:Akad Nikah 08.00 - Resepsi Siang 11.00 - Resepsi Malam 18.00\r\nLOCATION:The Ritz-Carlton Pacific Place Jakarta\r\nEND:VEVENT\r\nEND:VCALENDAR';
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
+  a.download='pernikahan-amara-rayhan.ics';a.click();
+  showToast('Tanggal tersimpan ke kalender 🌸');
+};
+
+/* ── TOAST ── */
+var tt;
+function showToast(msg){
+  var el=document.getElementById('toast');if(!el)return;
+  el.textContent=msg;el.classList.add('on');
+  clearTimeout(tt);tt=setTimeout(function(){el.classList.remove('on');},3400);
+}
+
+}); // DOMContentLoaded
+</script>
+</body>
+</html>
